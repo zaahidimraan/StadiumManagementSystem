@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -11,14 +12,14 @@
    <center>
       <AnchorPane prefHeight="350.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="350.0" prefWidth="900.0">
+            <TableView fx:id="billTable" prefHeight="350.0" prefWidth="900.0">
               <columns>
-                <TableColumn prefWidth="75.0" />
-                <TableColumn fx:id="colStaffCNIC" prefWidth="187.0" text="CNIC" />
-                  <TableColumn fx:id="colStaffName" prefWidth="149.0" text="Name" />
-                  <TableColumn fx:id="colStaffType" prefWidth="47.0" text="Type" />
-                  <TableColumn fx:id="colStaffDuty" prefWidth="135.0" text="Duty" />
-                  <TableColumn fx:id="colStaffSalary" minWidth="0.0" prefWidth="178.0" text="Salary" />
+                <TableColumn fx:id="colRefNo" prefWidth="187.0" text="Bill Reference Number" />
+                  <TableColumn fx:id="colDueDate" prefWidth="118.0" text="Due Date" />
+                  <TableColumn fx:id="colBillType" prefWidth="167.0" text="Type" />
+                  <TableColumn fx:id="colPersonID" prefWidth="148.0" text="Person ID" />
+                  <TableColumn fx:id="colPayment" minWidth="0.0" prefWidth="141.0" text="Payment" />
+                  <TableColumn fx:id="colBillStatus" prefWidth="137.0" text="Status" />
               </columns>
             </TableView>
          </children>
@@ -27,16 +28,16 @@
    <bottom>
       <AnchorPane prefHeight="250.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="staffCNIC" layoutX="46.0" layoutY="14.0" text="CNIC" />
-            <TextField fx:id="staffName" layoutX="46.0" layoutY="55.0" text="Name" />
-            <TextField fx:id="staffType" layoutX="46.0" layoutY="100.0" text="Type" />
-            <TextField fx:id="staffDuty" layoutX="46.0" layoutY="142.0" text="Duty" />
-            <TextField fx:id="staffSalary" layoutX="46.0" layoutY="186.0" text="Salary" />
-            <Button fx:id="staffAdd" layoutX="248.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Add" />
-            <Button fx:id="staffDelete" layoutX="248.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Delete" />
-            <Button fx:id="staffUpdate" layoutX="248.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Update" />
-            <Button fx:id="staffSalaryM" layoutX="358.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Salary Management" />
-            <Button fx:id="staffBack" layoutX="512.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Back" />
+            <TextField fx:id="billRefNo" layoutX="46.0" layoutY="8.0" promptText="Bill Reference Number" />
+            <TextField fx:id="dueDate" layoutX="46.0" layoutY="43.0" promptText="Due Date" />
+            <TextField fx:id="billType" layoutX="46.0" layoutY="80.0" promptText="Type" />
+            <TextField fx:id="personID" layoutX="46.0" layoutY="113.0" promptText="Paid Person ID" />
+            <TextField fx:id="billPayment" layoutX="46.0" layoutY="155.0" promptText="Payment" />
+            <Button fx:id="Add" layoutX="248.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Add" />
+            <Button fx:id="Delete" layoutX="248.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Delete" />
+            <Button fx:id="Update" layoutX="248.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Update" />
+            <Button fx:id="Back" layoutX="512.0" layoutY="174.0" mnemonicParsing="false" onAction="#BillTable" prefHeight="25.0" prefWidth="55.0" text="Back" />
+            <RadioButton fx:id="billStatus" layoutX="46.0" layoutY="199.0" mnemonicParsing="false" text="Paid" />
          </children>
       </AnchorPane>
    </bottom>

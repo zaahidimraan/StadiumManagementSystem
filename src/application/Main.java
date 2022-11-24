@@ -1,19 +1,22 @@
 package application;
 	
 import javafx.application.Application;
+import BusinessLogic.*;
+import BusinessLogic.Bill.BillHandler;
 import javafx.stage.Stage;
 import javafx.scene.*;
 import javafx.fxml.*;
 
 public class Main extends Application {
 	private static Stage stg;
+	private static BillHandler billHandler=new BillHandler();
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			stg = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("StaffManage.fxml"));
+			this.stg = primaryStage;
+			Parent root = FXMLLoader.load(getClass().getResource("Bill.fxml"));
 			Scene scene = new Scene(root, 900, 600);
-			primaryStage.setTitle("Staff Management");
+			primaryStage.setTitle("Bill Detail");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
@@ -24,4 +27,6 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
+	
 }

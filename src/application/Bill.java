@@ -1,55 +1,94 @@
 package application;
 
+import java.util.ArrayList;
+
+import BusinessLogic.Bill.BillDetail;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import java.io.IOException;
+
+import BusinessLogic.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.control.TableView;
 
 public class Bill {
 
-	 @FXML
-	    private TableColumn<?, ?> colStaffCNIC;
+    @FXML
+    private TableView<BillDetail> billTable;
 
-	    @FXML
-	    private TableColumn<?, ?> colStaffDuty;
+    @FXML
+    private Button Add;
 
-	    @FXML
-	    private TableColumn<?, ?> colStaffName;
+    @FXML
+    private Button Back;
 
-	    @FXML
-	    private TableColumn<?, ?> colStaffSalary;
+    @FXML
+    private Button Delete;
 
-	    @FXML
-	    private TableColumn<?, ?> colStaffType;
+    @FXML
+    private Button Update;
 
-	    @FXML
-	    private Button staffAdd;
+    @FXML
+    private TextField billPayment;
 
-	    @FXML
-	    private Button staffBack;
+    @FXML
+    private TextField billRefNo;
 
-	    @FXML
-	    private TextField staffCNIC;
+    @FXML
+    private RadioButton billStatus;
 
-	    @FXML
-	    private Button staffDelete;
+    @FXML
+    private TextField billType;
 
-	    @FXML
-	    private TextField staffDuty;
+    @FXML
+    private TableColumn<BillDetail, Boolean> colBillStatus;
 
-	    @FXML
-	    private TextField staffName;
+    @FXML
+    private TableColumn<BillDetail, String> colBillType;
 
-	    @FXML
-	    private TextField staffSalary;
+    @FXML
+    private TableColumn<BillDetail, String> colDueDate;
 
-	    @FXML
-	    private Button staffSalaryM;
+    @FXML
+    private TableColumn<BillDetail, Double> colPayment;
 
-	    @FXML
-	    private TextField staffType;
+    @FXML
+    private TableColumn<BillDetail, Integer> colPersonID;
 
-	    @FXML
-	    private Button staffUpdate;
+    @FXML
+    private TableColumn<BillDetail, Integer> colRefNo;
+
+    @FXML
+    private TextField dueDate;
+
+    @FXML
+    private TextField personID;
+    
+    public void BillTable(ActionEvent Event) {
+    	ArrayList<BillDetail> stu = new ArrayList<BillDetail>();
+    	stu.add(new BillDetail(1,"12/12/12","Electricity",123,123.0,true));
+    	stu.add(new BillDetail(1,"12/12/12","Electricity",123,123.0,true));
+    	stu.add(new BillDetail(1,"12/12/12","Electricity",123,123.0,true));
+    	stu.add(new BillDetail(1,"12/12/12","Electricity",123,123.0,true));
+
+
+			final ObservableList<BillDetail> data = FXCollections.observableArrayList(stu);
+            colRefNo.setCellValueFactory(new PropertyValueFactory<BillDetail, Integer>("billRefNo"));
+            colDueDate.setCellValueFactory(new PropertyValueFactory<BillDetail, String>("billDate"));
+            colBillType.setCellValueFactory(new PropertyValueFactory<BillDetail, String>("billType"));
+            colPersonID.setCellValueFactory(new PropertyValueFactory<BillDetail,Integer>("personID"));
+            colPayment.setCellValueFactory(new PropertyValueFactory<BillDetail,Double>("payment"));
+            colBillStatus.setCellValueFactory(new PropertyValueFactory<BillDetail,Boolean>("billStatus"));
+			billTable.setItems(data);
+		
+    }
 
 }

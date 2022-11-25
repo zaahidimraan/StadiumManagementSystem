@@ -39,6 +39,7 @@
             <Button fx:id="Back" layoutX="512.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Back" />
             <RadioButton fx:id="billStatus" layoutX="46.0" layoutY="199.0" mnemonicParsing="false" text="Paid" />
             <Button fx:id="show" layoutX="762.0" layoutY="21.0" mnemonicParsing="false" onAction="#BillTable" text="Show Table" />
+            <Button fx:id="Edit" layoutX="668.0" layoutY="21.0" mnemonicParsing="false" onAction="#getSelectedRow" text="Edit " />
          </children>
       </AnchorPane>
    </bottom>

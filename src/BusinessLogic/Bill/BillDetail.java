@@ -14,12 +14,12 @@ public class BillDetail {
 public BillDetail(Integer billRefNo2, String billDate2, String billType2, Integer personID2, Double d, Boolean billStatus2) {
 	// TODO Auto-generated constructor stub
 
-	this.billRefNo = billRefNo;
-	this.billDate = billDate;
-	this.billType = billType;
-	this.personID = personID;
-	this.payment = payment;
-	this.billStatus = billStatus;
+	this.billRefNo = billRefNo2;
+	this.billDate = billDate2;
+	this.billType = billType2;
+	this.personID = personID2;
+	this.payment = d;
+	this.billStatus = billStatus2;
 }
 
 

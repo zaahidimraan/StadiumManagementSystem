@@ -2,6 +2,9 @@ package application;
 	
 import javafx.application.Application;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import BusinessLogic.Bill.BillHandler;
 import BusinessLogic.Match.MatchRegsister;
 import BusinessLogic.Staff.StaffRegsister;
@@ -29,7 +32,8 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+	    
 		launch(args);
 	}
 
@@ -47,5 +51,10 @@ public class Main extends Application {
 
 	public static StaffRegsister getStaffRegsister() {
 		return staffRegsister;
-	}	
+	}
+	
+	public void changeScene(String fxml) throws IOException {
+		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+		stg.getScene().setRoot(pane);
+	}
 }

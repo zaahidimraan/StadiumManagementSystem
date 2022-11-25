@@ -9,6 +9,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import BusinessLogic.*;
 import javafx.collections.FXCollections;
@@ -24,6 +25,8 @@ public class Bill {
 
     @FXML
     private TableView<BillDetail> billTable;
+    @FXML
+    private Label info;
 
     @FXML
     private Button Add;
@@ -75,11 +78,10 @@ public class Bill {
     @FXML
     private Button Edit;
     
-    public void BillTable(ActionEvent Event) {
-    	ArrayList<BillDetail> stu = new ArrayList<BillDetail>();
-    	BillDetail t=new BillDetail(1,"Z","Z",12,12.0,true);
-    	stu.add(t);
-    	stu.add(t);
+    public void BillTable(ActionEvent Event) throws SQLException {
+    	Main m=new Main();
+    	ArrayList<BillDetail> stu = m.getBillHandler().getBillArrayList();;
+    	
 
 		final ObservableList<BillDetail> data = FXCollections.observableArrayList(stu);
         colRefNo.setCellValueFactory(new PropertyValueFactory<BillDetail, Integer>("billRefNo"));
@@ -106,6 +108,59 @@ public class Bill {
     	 billRefNo.setText(b.getSelectedItem().getBillRefNo().toString());
     	 billPayment.setText(b.getSelectedItem().getPayment().toString());
     	}
+    }
+    
+    public void addBill(ActionEvent Event) throws IOException, SQLException {
+    	Main m=new Main();
+    	if(billRefNo.getText().isEmpty() || billPayment.getText().isEmpty()||billStatus.getText().isEmpty())
+
+    	{
+    		info.setText("Enter Data in all fields");
+    	}
+    	else {
+    		Integer roll=Integer.parseInt(billRefNo.getText());
+    		Double payment=Double.parseDouble(billPayment.getText());
+    		Integer person=Integer.parseInt(personID.getText());
+    		Boolean status=billStatus.isSelected();
+    		Main.getBillHandler().addBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
+    		m.changeScene("Bill.fxml");
+    	}
+    	
+    }
+    
+    public void removeBill(ActionEvent Event) throws IOException, SQLException {
+    	Main m=new Main();
+    	if(billRefNo.getText().isEmpty() || billPayment.getText().isEmpty()||billStatus.getText().isEmpty())
+
+    	{
+    		info.setText("Enter Data in all fields");
+    	}
+    	else {
+    		Integer roll=Integer.parseInt(billRefNo.getText());
+    		Double payment=Double.parseDouble(billPayment.getText());
+    		Integer person=Integer.parseInt(personID.getText());
+    		Boolean status=billStatus.isSelected();
+    		Main.getBillHandler().removeBill(roll);
+    		m.changeScene("Bill.fxml");
+    	}
+    	
+    }
+    
+    public void updateBill(ActionEvent Event) throws SQLException, IOException {
+    	Main m=new Main();
+    	if(billRefNo.getText().isEmpty() || billPayment.getText().isEmpty()||billStatus.getText().isEmpty())
+
+    	{
+    		info.setText("Enter Data in all fields");
+    	}
+    	else {
+    		Integer roll=Integer.parseInt(billRefNo.getText());
+    		Double payment=Double.parseDouble(billPayment.getText());
+    		Integer person=Integer.parseInt(personID.getText());
+    		Boolean status=billStatus.isSelected();
+    		Main.getBillHandler().updateBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
+    		m.changeScene("Bill.fxml");
+    	}    	
     }
 
 }

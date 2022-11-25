@@ -22,6 +22,8 @@ public class Empire {
 	    //@FXML
 	    //private Label info;
 	    @FXML
+	    private Button booking;
+	    @FXML
 	    private TableColumn<BusinessLogic.EntAss.Empire, Integer> colStaffCNIC;
 
 	    @FXML
@@ -145,6 +147,12 @@ public class Empire {
 	    		Main.getEntAssRegsister().updateEntAss(roll, staffName.getText(), phone, staffType.getText(), payment);
 	    		m.changeScene("Empire.fxml");
 	    	} 	
+	    }
+	    
+		public void bookingScreen(ActionEvent Event) throws IOException {
+	    	Main m=new Main();
+	    	m.getEntAssRegsister().setEntAssID(Integer.parseInt(staffCNIC.getText()));
+	    	m.changeScene("BookingEntAssScreen.fxml");
 	    }
 
 }

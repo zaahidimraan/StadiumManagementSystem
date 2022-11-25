@@ -28,19 +28,20 @@
    <bottom>
       <AnchorPane fx:id="info" onDragDetected="#addBill" prefHeight="250.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="staffCNIC" layoutX="46.0" layoutY="14.0" text="CNIC" />
-            <TextField fx:id="staffName" layoutX="46.0" layoutY="55.0" text="Name" />
-            <TextField fx:id="staffType" layoutX="46.0" layoutY="100.0" text="Type" />
-            <TextField fx:id="staffDuty" layoutX="46.0" layoutY="142.0" text="Phone Number" />
-            <TextField fx:id="staffSalary" layoutX="46.0" layoutY="186.0" text="Fee" />
-            <Button fx:id="staffAdd" layoutX="248.0" layoutY="55.0" mnemonicParsing="false" onAction="#addBill" prefHeight="34.0" prefWidth="76.0" text="Add" />
-            <Button fx:id="staffDelete" layoutX="248.0" layoutY="100.0" mnemonicParsing="false" onAction="#removeBill" prefHeight="37.0" prefWidth="78.0" text="Delete" />
-            <Button fx:id="staffUpdate" layoutX="248.0" layoutY="142.0" mnemonicParsing="false" onAction="#updateBill" prefHeight="37.0" prefWidth="79.0" text="Update" />
+            <TextField fx:id="staffCNIC" layoutX="46.0" layoutY="14.0" promptText="CNIC" />
+            <TextField fx:id="staffName" layoutX="46.0" layoutY="55.0" promptText="Name" />
+            <TextField fx:id="staffType" layoutX="46.0" layoutY="100.0" promptText="Type" />
+            <TextField fx:id="staffDuty" layoutX="46.0" layoutY="142.0" promptText="Phone Number" />
+            <TextField fx:id="staffSalary" layoutX="46.0" layoutY="186.0" promptText="Fee" />
+            <Button fx:id="staffAdd" layoutX="248.0" layoutY="55.0" mnemonicParsing="false" onAction="#addBill" prefHeight="34.0" prefWidth="119.0" text="Add" />
+            <Button fx:id="staffDelete" layoutX="248.0" layoutY="100.0" mnemonicParsing="false" onAction="#removeBill" prefHeight="37.0" prefWidth="117.0" text="Delete" />
+            <Button fx:id="staffUpdate" layoutX="248.0" layoutY="142.0" mnemonicParsing="false" onAction="#updateBill" prefHeight="37.0" prefWidth="117.0" text="Update" />
             <Button fx:id="staffSalaryM" layoutX="713.0" layoutY="18.0" mnemonicParsing="false" onAction="#showTable" prefHeight="25.0" prefWidth="137.0" text="Show Table" />
             <Button fx:id="staffBack" layoutX="795.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Back" />
             <Button fx:id="staffBack1" layoutX="583.0" layoutY="18.0" mnemonicParsing="false" onAction="#getSelectedRow" prefHeight="25.0" prefWidth="55.0" text="Edit" />
             <Button layoutX="424.0" layoutY="186.0" mnemonicParsing="false" text="Button" />
             <Label layoutX="258.0" layoutY="211.0" />
+            <Button fx:id="booking" layoutX="248.0" layoutY="186.0" mnemonicParsing="false" onAction="#bookingScreen" prefHeight="31.0" prefWidth="117.0" text="Add Booking" />
          </children>
       </AnchorPane>
    </bottom>

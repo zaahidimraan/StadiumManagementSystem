@@ -10,6 +10,11 @@ import java.util.ArrayList;
 public class EntAssRegsisterBL {
     private ArrayList<Empire> empires=new ArrayList<Empire>();
     private  ArrayList<Commentator> commentators=new ArrayList<Commentator>();
+    private Integer entAssID;
+    
+    public void setEntAssID(Integer temp) {
+        entAssID=temp;    	
+    }
 
 
     public ArrayList<Empire> getEmpires() {
@@ -117,6 +122,12 @@ public class EntAssRegsisterBL {
 
 
     }
+
+
+	public Integer getEntAssID() {
+		return entAssID;
+	}
+    
 
 
 }

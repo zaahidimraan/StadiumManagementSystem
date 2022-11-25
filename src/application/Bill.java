@@ -29,7 +29,8 @@ public class Bill {
 
     @FXML
     private Button Back;
-
+    @FXML
+    private Button show;
     @FXML
     private Button Delete;
 

@@ -3,6 +3,8 @@ package application;
 import javafx.application.Application;
 
 import BusinessLogic.Bill.BillHandler;
+import BusinessLogic.Match.MatchRegsister;
+import BusinessLogic.Staff.StaffRegsister;
 import javafx.stage.Stage;
 import javafx.scene.*;
 import javafx.fxml.*;
@@ -10,6 +12,9 @@ import javafx.fxml.*;
 public class Main extends Application {
 	private static Stage stg;
 	private static BillHandler billHandler=new BillHandler();
+	private static EntAssRegsister entAssRegsister=new EntAssRegsister();
+	private static MatchRegsister matchRegsister=new MatchRegsister();
+	private static StaffRegsister staffRegsister=new StaffRegsister();
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -27,6 +32,20 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
-	
+
+	public static BillHandler getBillHandler() {
+		return billHandler;
+	}
+
+	public static EntAssRegsister getEntAssRegsister() {
+		return entAssRegsister;
+	}
+
+	public static MatchRegsister getMatchRegsister() {
+		return matchRegsister;
+	}
+
+	public static StaffRegsister getStaffRegsister() {
+		return staffRegsister;
+	}	
 }

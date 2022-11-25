@@ -1,55 +1,31 @@
 package application;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
 
-public class EntAssRegsister{
+public class EntAssRegsister {
 
-	 @FXML
-	    private TableColumn<?, ?> colStaffCNIC;
+    @FXML
+    private Button commentator;
 
-	    @FXML
-	    private TableColumn<?, ?> colStaffDuty;
+    @FXML
+    private Button empire;
 
-	    @FXML
-	    private TableColumn<?, ?> colStaffName;
+    @FXML
+    void EmpireScreen(ActionEvent event) throws IOException {
+    	Main m=new Main();
+    	m.changeScene("Empire.fxml");
 
-	    @FXML
-	    private TableColumn<?, ?> colStaffSalary;
+    }
 
-	    @FXML
-	    private TableColumn<?, ?> colStaffType;
-
-	    @FXML
-	    private Button staffAdd;
-
-	    @FXML
-	    private Button staffBack;
-
-	    @FXML
-	    private TextField staffCNIC;
-
-	    @FXML
-	    private Button staffDelete;
-
-	    @FXML
-	    private TextField staffDuty;
-
-	    @FXML
-	    private TextField staffName;
-
-	    @FXML
-	    private TextField staffSalary;
-
-	    @FXML
-	    private Button staffSalaryM;
-
-	    @FXML
-	    private TextField staffType;
-
-	    @FXML
-	    private Button staffUpdate;
+    @FXML
+    void commentatorScreen(ActionEvent event) throws IOException {
+    	Main m=new Main();
+    	m.changeScene("Commentator.fxml");
+    	
+    }
 
 }

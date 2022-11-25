@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import BusinessLogic.Bill.BillHandler;
+import BusinessLogic.EntAss.EntAssRegsisterBL;
 import BusinessLogic.Match.MatchRegsister;
 import BusinessLogic.Staff.StaffRegsister;
 import javafx.stage.Stage;
@@ -15,16 +16,16 @@ import javafx.fxml.*;
 public class Main extends Application {
 	private static Stage stg;
 	private static BillHandler billHandler=new BillHandler();
-	private static EntAssRegsister entAssRegsister=new EntAssRegsister();
+	private static EntAssRegsisterBL entAssRegsister=new EntAssRegsisterBL();
 	private static MatchRegsister matchRegsister=new MatchRegsister();
 	private static StaffRegsister staffRegsister=new StaffRegsister();
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			this.stg = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("Bill.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("EntAssRegsister.fxml"));
 			Scene scene = new Scene(root, 900, 600);
-			primaryStage.setTitle("Bill Detail");
+			primaryStage.setTitle("Booking EntAss");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
@@ -41,7 +42,7 @@ public class Main extends Application {
 		return billHandler;
 	}
 
-	public static EntAssRegsister getEntAssRegsister() {
+	public static EntAssRegsisterBL getEntAssRegsister() {
 		return entAssRegsister;
 	}
 

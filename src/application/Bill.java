@@ -74,11 +74,6 @@ public class Bill {
     
     public void BillTable(ActionEvent Event) {
     	ArrayList<BillDetail> stu = new ArrayList<BillDetail>();
-    	stu.add(new BillDetail(1,"12/12/12","Electricity",123,123.0,true));
-    	stu.add(new BillDetail(1,"12/12/12","Electricity",123,123.0,true));
-    	stu.add(new BillDetail(1,"12/12/12","Electricity",123,123.0,true));
-    	stu.add(new BillDetail(1,"12/12/12","Electricity",123,123.0,true));
-
 
 			final ObservableList<BillDetail> data = FXCollections.observableArrayList(stu);
             colRefNo.setCellValueFactory(new PropertyValueFactory<BillDetail, Integer>("billRefNo"));

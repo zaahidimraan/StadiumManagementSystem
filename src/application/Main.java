@@ -1,7 +1,7 @@
 package application;
 	
 import javafx.application.Application;
-import BusinessLogic.*;
+
 import BusinessLogic.Bill.BillHandler;
 import javafx.stage.Stage;
 import javafx.scene.*;

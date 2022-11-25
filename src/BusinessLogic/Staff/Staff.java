@@ -5,11 +5,26 @@ import java.util.ArrayList;
 public class Staff {
     private Integer CNIC;
     private String name;
+    private String type;
+    private Double salary;
+    private String duty;
+    private String password;
 
-    private ArrayList<Salary> salaries=new ArrayList<Salary>();
-    public Staff(Integer CNIC, String name) {
+    public Staff(Integer CNIC, String name, String type, Double salary, String duty, String password) {
         this.CNIC = CNIC;
         this.name = name;
+        this.type = type;
+        this.salary = salary;
+        this.duty = duty;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Integer getCNIC() {
@@ -28,6 +43,32 @@ public class Staff {
         this.name = name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public String getDuty() {
+        return duty;
+    }
+
+    public void setDuty(String duty) {
+        this.duty = duty;
+    }
+
+    private ArrayList<Salary> salaries=new ArrayList<Salary>();
+
     public ArrayList<Salary> getSalaries() {
         return salaries;
     }
@@ -39,4 +80,6 @@ public class Staff {
     public void addSalary(Boolean status, Double payement, Integer CNIC){
         salaries.add(new Salary(status, payement, CNIC));
     }
+
+
 }

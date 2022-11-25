@@ -63,7 +63,7 @@ public class BookingEntAssScreen {
     private TextField dueDate;
     @FXML
     private Button Edit;
-    
+ /*   
     public void BillTable(ActionEvent Event) throws SQLException {
     	Main m=new Main();
     	ArrayList<BillDetail> stu = m.getBillHandler().getBillArrayList();;
@@ -148,5 +148,5 @@ public class BookingEntAssScreen {
     		m.changeScene("Bill.fxml");
     	}    	
     }
-
+*/
 }

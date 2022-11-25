@@ -23,7 +23,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			this.stg = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("Empire.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("StaffManage.fxml"));
 			Scene scene = new Scene(root, 900, 600);
 			primaryStage.setTitle("Booking EntAss");
 			primaryStage.setScene(scene);

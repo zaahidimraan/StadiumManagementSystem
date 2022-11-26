@@ -93,7 +93,7 @@ public class staffDB {
         ResultSet rs = stm.executeQuery(query);
 
         while(rs.next()) {
-        	if(rs.getInt(1)==CNIC)
+        	if(rs.getInt(1)==CNIC.intValue())
         		arr.add(new Salary(rs.getBoolean(2),rs.getDouble(3),rs.getInt(1),rs.getString(4),rs.getString(5)));
              
         }

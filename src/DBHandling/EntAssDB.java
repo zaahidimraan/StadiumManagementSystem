@@ -1,6 +1,7 @@
 package DBHandling;
 
 import BusinessLogic.Bill.BillDetail;
+import BusinessLogic.EntAss.BookingAss;
 import BusinessLogic.EntAss.Commentator;
 import BusinessLogic.EntAss.Empire;
 
@@ -109,4 +110,25 @@ public class EntAssDB {
         stm.executeUpdate(query1);
     }
 
+    public ArrayList<BookingAss> getBookingEnt(Integer CNIC) throws SQLException {
+        ArrayList<BookingAss> arr = new ArrayList<BookingAss>();
+        Statement stm;
+        String query = "SELECT * FROM A_BookingDetail";
+        stm = con.createStatement();
+        ResultSet rs = stm.executeQuery(query);
+
+        while (rs.next()) {
+            if(CNIC.intValue()==rs.getInt(1))
+                arr.add(new BookingAss(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+
+        }
+
+        return arr;
+    }
+
+    public void addBooking(Integer CNIC,String M_ID,String date,String time) throws SQLException {
+        String query="insert into A_BookingDetail VALUES("+CNIC+",'"+M_ID+"','"+date+"','"+time+"')";
+        Statement stm=con.createStatement();
+        stm.executeUpdate(query);
+    }
 }

@@ -16,6 +16,30 @@ public class EntAssRegsisterBL {
         entAssID=temp;    	
     }
 
+    public ArrayList<BookingAss> getBookingList(Integer CNIC) throws SQLException {
+        for(int i=0;i<empires.size();i++){
+            if(CNIC==empires.get(i).getCNIC())
+                return empires.get(i).getBookingA(CNIC);
+        }
+        for(int i=0;i<commentators.size();i++){
+            if(CNIC==commentators.get(i).getCNIC())
+                return commentators.get(i).getBookingA(CNIC);
+        }
+        return null;
+    }
+
+    public void addBooking(Integer CNIC,String M_ID,String date,String time) throws SQLException {
+        for(int i=0;i<empires.size();i++){
+            if(CNIC==empires.get(i).getCNIC())
+                empires.get(i).addBooking(CNIC,M_ID,date,time);
+        }
+        for(int i=0;i<commentators.size();i++){
+            if(CNIC==commentators.get(i).getCNIC())
+                empires.get(i).addBooking(CNIC,M_ID,date,time);
+        }
+    }
+
+
 
     public ArrayList<Empire> getEmpires() {
         EntAssDB db=new EntAssDB();

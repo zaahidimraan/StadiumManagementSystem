@@ -75,7 +75,7 @@ public class BookingEntAssScreen {
     public void BillTable(ActionEvent Event) throws SQLException {
     	Main m=new Main();
     	
-    	ArrayList<BookingAss> stu = m.getEntAssRegsister().getBookingList(0);
+    	ArrayList<BookingAss> stu = m.getEntAssRegsister().getBookingList(1);
     	
 
 		final ObservableList<BookingAss> data = FXCollections.observableArrayList(stu);
@@ -105,20 +105,17 @@ public class BookingEntAssScreen {
     
     public void addBill(ActionEvent Event) throws IOException, SQLException {
     	Main m=new Main();
-/*    	if(billRefNo.getText().isEmpty() || billPayment.getText().isEmpty()||billStatus.getText().isEmpty())
+    	if(billRefNo.getText().isEmpty() || billPayment.getText().isEmpty())
 
     	{
     		info.setText("Enter Data in all fields");
     	}
     	else {
-    		Integer roll=Integer.parseInt(billRefNo.getText());
-    		Double payment=Double.parseDouble(billPayment.getText());
-    		Integer person=Integer.parseInt(personID.getText());
-    		Boolean status=billStatus.isSelected();
-    		Main.getBillHandler().addBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
-    		this.BillTable(Event);
+    		Integer roll=Integer.parseInt(CNIC.getText());
+    		Main.getEntAssRegsister().addBooking(roll,billRefNo.getText() ,dueDate.getText() , billPayment.getText());;
+    		//this.BillTable(Event);
     	}
-    	*/
+    	
     }
     @FXML
     void removeBill(ActionEvent event) {

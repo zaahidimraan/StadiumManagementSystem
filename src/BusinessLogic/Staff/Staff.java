@@ -1,5 +1,8 @@
 package BusinessLogic.Staff;
 
+import DBHandling.staffDB;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Staff {
@@ -73,13 +76,27 @@ public class Staff {
         return salaries;
     }
 
-    public void setSalaries(ArrayList<Salary> salaries) {
-        this.salaries = salaries;
+    public void removeSalary(Integer CNIC,String Month) throws SQLException {
+          for(int i=0;i<salaries.size();i++){
+              if((salaries.get(i).getCNIC()==CNIC)&&(Month.equals(salaries.get(i).getMonth()))){
+                  staffDB db=new staffDB();
+                  db.removeSalary(CNIC,Month);
+                  salaries=db.getSalaryArray();
+               i=salaries.size();
+              }
+          }
     }
 
-    public void addSalary(Boolean status, Double payement, Integer CNIC){
-        salaries.add(new Salary(status, payement, CNIC));
+    public void addSalary(Boolean status, Double payement, Integer CNIC,String date,String month) throws SQLException {
+        staffDB db=new staffDB();
+            db.addsSalary(new Salary(status, payement, CNIC,date,month));
+        salaries=db.getSalaryArray();
     }
 
+    public void updateSalary(Boolean status,Double pay,Integer CNIC,String date,String Month) throws SQLException {
+        staffDB db=new staffDB();
+        db.updateSalary(new Salary(status,pay,CNIC,date,Month));
+        salaries=db.getSalaryArray();
+    }
 
 }

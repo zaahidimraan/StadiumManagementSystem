@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class StaffRegsisterA {
     private ArrayList<Staff> staffArrayList=new ArrayList<Staff>();
-    private Integer personID;
+    private Integer index;
 
 
     public void addPerson(Integer CNIC, String name, String type, Double salary, String duty, String password) throws SQLException {
@@ -50,17 +50,6 @@ public class StaffRegsisterA {
         staffArrayList=db.getstaffArray();
     	return staffArrayList;
     }
-    public void addSalary(Boolean status, Double payement, Integer CNIC){
-
-            for(int i=0;i<staffArrayList.size();i++){
-                if(CNIC==staffArrayList.get(i).getCNIC()) {
-                    staffArrayList.get(i).addSalary(status,payement,CNIC);
-                    i=staffArrayList.size();
-                }
-            }
-
-
-    }
 
     public Staff getLogin(Integer CNIC,String password) throws SQLException {
     	staffArrayList=this.getStaffArrayList();
@@ -75,4 +64,22 @@ public class StaffRegsisterA {
         return null;
 
     }
+
+    public ArrayList<Salary> getSalaryArray(Integer index) {
+    	return staffArrayList.get(0).getSalaries();
+    }
+
+    public void addSalary(Boolean status,Double pay,Integer CNIC,String date,String month) throws SQLException {
+        staffArrayList=this.getStaffArrayList();
+        staffArrayList.get(0).addSalary(status,pay,CNIC,date,month);
+    }
+    public void removeSalary(Integer CNIC,String Month) throws SQLException {
+        staffArrayList=this.getStaffArrayList();
+        staffArrayList.get(0).removeSalary(CNIC,Month);
+    }
+    public void updateSalary(Boolean status,Double pay,Integer CNIC,String date,String Month) throws SQLException {
+        staffArrayList=this.getStaffArrayList();
+        staffArrayList.get(0).updateSalary(status,pay,CNIC,date,Month);
+    }
+
 }

@@ -1,6 +1,7 @@
 package DBHandling;
 
 import BusinessLogic.Bill.BillDetail;
+import BusinessLogic.Staff.Salary;
 import BusinessLogic.Staff.Staff;
 
 import java.sql.*;
@@ -77,6 +78,59 @@ public class staffDB {
                 +staff.getDuty()+"','"+staff.getPassword()+"')";
 
 
+        Statement stm=con.createStatement();
+        stm.executeUpdate(query1);
+    }
+
+    // Salary Management
+    public ArrayList<Salary> getSalaryArray() throws SQLException {
+
+
+        ArrayList<Salary> arr = new ArrayList<Salary>();
+        Statement stm;
+        String query="SELECT * FROM Salary";
+        stm=con.createStatement();
+        ResultSet rs = stm.executeQuery(query);
+
+        while(rs.next()) {
+        	
+            Salary temp = new Salary(rs.getBoolean(2),rs.getDouble(3),rs.getInt(1),rs.getString(4),rs.getString(5));
+            arr.add(temp);
+        }
+
+        return arr;
+    }
+
+    public void addsSalary(Salary staff) throws SQLException {
+
+
+        String query="insert into Salary VALUES("+staff.getCNIC()+",'"+staff.getStatus()+"','"+staff.getPayement()+"','"+staff.getMonth()+"','"
+                +staff.getDate()+"')";
+        Statement stm=con.createStatement();
+        stm.executeUpdate(query);
+    }
+
+    public void removeSalary(Integer staffID,String month) throws SQLException {
+        String query = "delete from Staff where S_CNIC = ? and SL_month=?";
+        PreparedStatement preparedStmt = con.prepareStatement(query);
+        preparedStmt.setInt(1, staffID);
+        preparedStmt.setString(2, month);
+
+        // execute the preparedstatement
+        preparedStmt.execute();
+    }
+
+    public void updateSalary(Salary staff) throws SQLException {
+        String query = "delete from Staff where S_CNIC = ? and SL_month=?";
+        PreparedStatement preparedStmt = con.prepareStatement(query);
+        preparedStmt.setInt(1, staff.getCNIC());
+        preparedStmt.setString(2, staff.getMonth());
+
+        // execute the preparedstatement
+        preparedStmt.execute();
+
+        String query1="insert into salary VALUES("+staff.getCNIC()+",'"+staff.getStatus()+"','"+staff.getPayement()+"','"+staff.getMonth()+"','"
+                +staff.getDate()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query1);
     }

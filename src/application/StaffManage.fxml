@@ -41,6 +41,7 @@
             <Button fx:id="Edit" layoutX="668.0" layoutY="21.0" mnemonicParsing="false" onAction="#getSelectedRow" text="Edit " />
             <Label fx:id="info" layoutX="248.0" layoutY="199.0" />
             <TextField fx:id="billStatus" layoutX="46.0" layoutY="195.0" promptText="Password" />
+            <Button layoutX="386.0" layoutY="174.0" mnemonicParsing="false" onAction="#SalaryPage" text="Manage Salaries" />
          </children>
       </AnchorPane>
    </bottom>

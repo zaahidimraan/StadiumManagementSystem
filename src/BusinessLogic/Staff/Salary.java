@@ -13,17 +13,14 @@ public class Salary {
    private String month;
    private String date;
 
-    public Salary(Boolean status, Double payement, Integer CNIC) {
+    
+
+    public Salary(Boolean status, Double payement, Integer CNIC,String date,String month) {
         Status = status;
         this.payement = payement;
         this.CNIC = CNIC;
-        // Date
-        Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        this.date = dateFormat.format(date);
-        // Month
-        DateFormat dateFormat1 = new SimpleDateFormat("mm-yyyy");
-        this.month = dateFormat1.format(date);
+        this.date = date;
+        this.month = month;
     }
 
     public Boolean getStatus() {

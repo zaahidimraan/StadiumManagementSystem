@@ -158,7 +158,11 @@ public class StaffManage {
     public void BackPage(ActionEvent Event) throws IOException {
    	 Main m=new Main();
     	m.changeScene("Home.fxml");
-    	
    }
+    
+    public void SalaryPage(ActionEvent Event) throws IOException, SQLException {
+      	 Main m=new Main();
+       	m.changeScene("SalaryStaff.fxml");
+      }
 
 }

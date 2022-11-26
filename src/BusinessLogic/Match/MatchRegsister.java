@@ -5,6 +5,8 @@ import DBHandling.MatchDB;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import BusinessLogic.Staff.Staff;
+
 public class MatchRegsister {
 
     private ArrayList<Match> matches=new ArrayList<Match>();
@@ -51,5 +53,7 @@ public class MatchRegsister {
             }
         }
     }
+
+	
 
 }

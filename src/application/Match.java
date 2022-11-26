@@ -59,6 +59,17 @@ public class Match {
 
     @FXML
     private TableColumn<BusinessLogic.Match.Match, String> colRefNo;
+    @FXML
+    private TableColumn<?, ?> colteam1;
+
+    @FXML
+    private TableColumn<?, ?> colteam2;
+    
+    @FXML
+    private TextField team1;
+
+    @FXML
+    private TextField team2;
 
     @FXML
     private TextField dueDate;

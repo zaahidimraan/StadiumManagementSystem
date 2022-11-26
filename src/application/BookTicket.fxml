@@ -25,7 +25,6 @@
                         <Button fx:id="register21" layoutX="821.0" layoutY="32.0" mnemonicParsing="false" text="Back" textAlignment="CENTER" />
                         <Button fx:id="register211" layoutX="663.0" layoutY="32.0" mnemonicParsing="false" text="Main Menu" textAlignment="CENTER" />
                         <Button fx:id="register" layoutX="513.0" layoutY="31.0" mnemonicParsing="false" text="Payment" textAlignment="CENTER" />
-                        <Button fx:id="register1" layoutX="361.0" layoutY="31.0" mnemonicParsing="false" text="Order Food" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
                   <Button fx:id="register2111" layoutX="763.0" layoutY="214.0" mnemonicParsing="false" text="Show Reservation" textAlignment="CENTER" />
@@ -35,13 +34,13 @@
                   <Button fx:id="register2115" layoutX="295.0" layoutY="238.0" mnemonicParsing="false" text="Book Seat" textAlignment="CENTER" />
                   <Button fx:id="register2114" layoutX="295.0" layoutY="291.0" mnemonicParsing="false" text="Cancel Seat" textAlignment="CENTER" />
                   <Button fx:id="register2113" layoutX="295.0" layoutY="338.0" mnemonicParsing="false" text="Update Seat" textAlignment="CENTER" />
-                  <MenuButton layoutX="75.0" layoutY="309.0" mnemonicParsing="false" text="Seating Area">
+                  <MenuButton fx:id="seatingArea" layoutX="25.0" layoutY="309.0" mnemonicParsing="false" text="Seating Area">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                      <MenuItem mnemonicParsing="false" text="A" />
+                      <MenuItem mnemonicParsing="false" text="B" />
+                      <MenuItem mnemonicParsing="false" text="C" />
                     </items>
                   </MenuButton>
-                  <Button fx:id="register21151" layoutX="75.0" layoutY="356.0" mnemonicParsing="false" text="Select Seat" textAlignment="CENTER" />
                   <TableView layoutY="-2.0" prefHeight="200.0" prefWidth="928.0">
                     <columns>
                       <TableColumn fx:id="tableName" prefWidth="203.19997560977936" text="Name " />
@@ -50,6 +49,13 @@
                         <TableColumn fx:id="tableSeatNumber" prefWidth="272.0" text="Seat Number" />
                     </columns>
                   </TableView>
+                  <MenuButton fx:id="orderFood" layoutX="162.0" layoutY="309.0" mnemonicParsing="false" text="Order Food">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Deal One(Burger,Fries,Coke)" />
+                        <MenuItem mnemonicParsing="false" text="Deal Two(Pizza,Coke)" />
+                        <MenuItem mnemonicParsing="false" text="Deal Three(SNACKS,Coke)" />
+                     </items>
+                  </MenuButton>
                </children>
             </AnchorPane>
             <Label alignment="CENTER" layoutY="-1.0" prefHeight="90.0" prefWidth="928.0" text="BOOK TICKET" textAlignment="CENTER">

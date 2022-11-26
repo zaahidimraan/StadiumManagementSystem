@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -65,19 +66,28 @@ public class Home {
 		
     }
     
-    public void getSelectedRow(ActionEvent Event) {
+    public void getSelectedRow(ActionEvent Event) throws IOException {
     	if(table.getSelectionModel() != null) {
     	 TableViewSelectionModel<BusinessLogic.Match.Match> b=table.getSelectionModel();
     	 Main m=new Main();
     	 m.getPersonRegsister().setM_ID(b.getSelectedItem().getMatchID());
+    	 m.changeScene("BookTicket.fxml");
+    	 
     	}
     }
     
     public void LoginUser(ActionEvent Event) {
     	Main m=new Main();
     	String CNIC=login.getText(); 
-    	Staff sm=m.getMatchRegsister().getLogin(Integer.parseInt(CNIC),password.getText());
-    	if()
+    	Staff sm=m.getStaffRegsister().getLogin(Integer.valueOf(Integer.parseInt(CNIC)),password.getText());
+    	if(sm!=null) {
+    		
+    	}
+    	else {
+    		login.setText("Wrong Entry");
+    	}
     }
+    
+    
 
 }

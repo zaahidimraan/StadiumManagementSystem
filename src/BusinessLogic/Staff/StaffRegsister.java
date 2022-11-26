@@ -125,4 +125,9 @@ public class StaffRegsister {
             }
 
     }
+
+	public Staff getLogin(Integer valueOf, String text) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

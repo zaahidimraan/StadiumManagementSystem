@@ -10,6 +10,7 @@ import BusinessLogic.EntAss.EntAssRegsisterBL;
 import BusinessLogic.Match.MatchRegsister;
 import BusinessLogic.Person.PersonRegsister;
 import BusinessLogic.Staff.StaffRegsister;
+import BusinessLogic.Staff.StaffRegsisterA;
 import javafx.stage.Stage;
 import javafx.scene.*;
 import javafx.fxml.*;
@@ -19,13 +20,13 @@ public class Main extends Application {
 	private static BillHandler billHandler=new BillHandler();
 	private static EntAssRegsisterBL entAssRegsister=new EntAssRegsisterBL();
 	private static MatchRegsister matchRegsister=new MatchRegsister();
-	private static StaffRegsister staffRegsister=new StaffRegsister();
+	private static StaffRegsisterA staffRegsister=new StaffRegsisterA();
 	private static PersonRegsister personRegsister=new PersonRegsister();
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			this.stg = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("BookTicket.fxml"));
 			Scene scene = new Scene(root, 900, 600);
 			primaryStage.setTitle("Horizon Stadium");
 			primaryStage.setScene(scene);
@@ -52,7 +53,7 @@ public class Main extends Application {
 		return matchRegsister;
 	}
 
-	public static StaffRegsister getStaffRegsister() {
+	public static StaffRegsisterA getStaffRegsister() {
 		return staffRegsister;
 	}
 	

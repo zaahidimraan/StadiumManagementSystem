@@ -1,12 +1,20 @@
 package application;
 
+import java.awt.Label;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
 public class BookTicket {
 
+    @FXML
+    private MenuButton seatingArea;
+
+    @FXML
+    private MenuButton orderFood;
     @FXML
     private TextField fname;
 
@@ -44,15 +52,15 @@ public class BookTicket {
     private Button register21151;
 
     @FXML
-    private TableColumn<?, ?> tableCNIC;
+    private TableColumn<BusinessLogic.Person.Person, Integer> tableCNIC;
 
     @FXML
-    private TableColumn<?, ?> tableName;
+    private TableColumn<BusinessLogic.Person.Person, String> tableName;
 
     @FXML
-    private TableColumn<?, ?> tableSeatNumber;
+    private TableColumn<BusinessLogic.Person.seatDetail, Integer> tableSeatNumber;
 
     @FXML
-    private TableColumn<?, ?> tableSeatingArea;
+    private TableColumn<BusinessLogic.Person.seatDetail, String> tableSeatingArea;
 
 }

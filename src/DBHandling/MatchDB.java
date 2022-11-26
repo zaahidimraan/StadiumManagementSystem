@@ -37,7 +37,7 @@ public class MatchDB {
         ResultSet rs = stm.executeQuery(query);
 
         while(rs.next()) {
-            Match temp = new Match(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+            Match temp = new Match(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
             arr.add(temp);
         }
 
@@ -46,7 +46,7 @@ public class MatchDB {
 
     public void addMatch(Match match) throws SQLException {
 
-        String query="insert into MatchDetail VALUES("+match.getMatchID()+",'"+match.getMatchType()+"','"+match.getMatchDate()+"','"+match.getStartIme()+"')";
+        String query="insert into MatchDetail VALUES("+match.getMatchID()+",'"+match.getMatchType()+"','"+match.getMatchDate()+"','"+match.getStartIme()+"','"+match.getTeam1()+"','"+match.getTeam2()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query);
     }
@@ -61,14 +61,14 @@ public class MatchDB {
     }
 
     public void updateMatch(Match match) throws SQLException {
-        String query = "delete from MatchDetail where B_ID = ?";
+        String query = "delete from MatchDetail where M_ID = ?";
         PreparedStatement preparedStmt = con.prepareStatement(query);
         preparedStmt.setString(1, match.getMatchID());
 
         // execute the preparedstatement
         preparedStmt.execute();
 
-        String query1="insert into MatchDetail VALUES("+match.getMatchID()+",'"+match.getMatchType()+"','"+match.getMatchDate()+"','"+match.getStartIme()+"')";
+        String query1="insert into MatchDetail VALUES("+match.getMatchID()+",'"+match.getMatchType()+"','"+match.getMatchDate()+"','"+match.getStartIme()+"','"+match.getTeam1()+"','"+match.getTeam2()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query1);
     }

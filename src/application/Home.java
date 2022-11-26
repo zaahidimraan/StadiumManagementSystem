@@ -76,18 +76,53 @@ public class Home {
     	}
     }
     
-    public void LoginUser(ActionEvent Event) {
+    public void LoginUser(ActionEvent Event) throws IOException {
     	Main m=new Main();
     	String CNIC=login.getText(); 
     	Staff sm=m.getStaffRegsister().getLogin(Integer.valueOf(Integer.parseInt(CNIC)),password.getText());
     	if(sm!=null) {
-    		
+    		if(sm.getType().equals("Admin"))
+    			m.changeScene("staffpage.fxml");
+    		else
+    			m.changeScene("adminpage.fxml");
     	}
     	else {
     		login.setText("Wrong Entry");
     	}
     }
     
+	public void EntAssPage(ActionEvent Event) throws IOException {
+    	Main m=new Main();
+    	m.changeScene("EntAssRegsister.fxml");
+    	
+    }
     
+    public void BillPage(ActionEvent Event) throws IOException {
+    	Main m=new Main();
+    	m.changeScene("Bill.fxml");
+    	
+    	
+    }
+    
+    public void StaffPage(ActionEvent Event) throws IOException {
+    	Main m=new Main();
+    	m.changeScene("StaffManage.fxml");
+    	
+    	
+    }
+    
+    public void MatchPage(ActionEvent Event) throws IOException {
+    	Main m=new Main();
+    	m.changeScene("Match.fxml");
+    	
+    	
+    }
+    
+     public void BackPage(ActionEvent Event) throws IOException {
+    	 Main m=new Main();
+     	m.changeScene("Home.fxml");
+     	
+    	
+    }
 
 }

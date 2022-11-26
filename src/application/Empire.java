@@ -154,5 +154,10 @@ public class Empire {
 	    	m.getEntAssRegsister().setEntAssID(Integer.parseInt(staffCNIC.getText()));
 	    	m.changeScene("BookingEntAssScreen.fxml");
 	    }
+		
+		public void BackHome(ActionEvent Event) throws IOException {
+	    	Main m=new Main();
+	    	m.changeScene("Home.fxml");
+	    }
 
 }

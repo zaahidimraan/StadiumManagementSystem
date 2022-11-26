@@ -9,7 +9,6 @@ import BusinessLogic.Bill.BillHandler;
 import BusinessLogic.EntAss.EntAssRegsisterBL;
 import BusinessLogic.Match.MatchRegsister;
 import BusinessLogic.Person.PersonRegsister;
-import BusinessLogic.Staff.StaffRegsister;
 import BusinessLogic.Staff.StaffRegsisterA;
 import javafx.stage.Stage;
 import javafx.scene.*;
@@ -26,7 +25,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			this.stg = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("BookTicket.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("staffpage.fxml"));
 			Scene scene = new Scene(root, 900, 600);
 			primaryStage.setTitle("Horizon Stadium");
 			primaryStage.setScene(scene);

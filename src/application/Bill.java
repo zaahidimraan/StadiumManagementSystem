@@ -123,7 +123,7 @@ public class Bill {
     		Integer person=Integer.parseInt(personID.getText());
     		Boolean status=billStatus.isSelected();
     		Main.getBillHandler().addBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
-    		m.changeScene("Bill.fxml");
+    		this.BillTable(Event);
     	}
     	
     }
@@ -141,7 +141,7 @@ public class Bill {
     		Integer person=Integer.parseInt(personID.getText());
     		Boolean status=billStatus.isSelected();
     		Main.getBillHandler().removeBill(roll);
-    		m.changeScene("Bill.fxml");
+    		this.BillTable(Event);
     	}
     	
     }
@@ -159,8 +159,13 @@ public class Bill {
     		Integer person=Integer.parseInt(personID.getText());
     		Boolean status=billStatus.isSelected();
     		Main.getBillHandler().updateBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
-    		m.changeScene("Bill.fxml");
+    		this.BillTable(Event);
     	}    	
+    }
+    
+    public void BackHome(ActionEvent Event) throws IOException {
+    	Main m=new Main();
+    	m.changeScene("Home.fxml");
     }
 
 }

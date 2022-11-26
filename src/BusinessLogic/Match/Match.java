@@ -8,16 +8,17 @@ public class Match {
     private String matchDate;
     private String startIme;
 
-    private Team team1;
-    private Team team2;
+    private String team1;
+    private String team2;
     private ArrayList<SeatingArea> seatingAreas=new ArrayList<SeatingArea>();
 
-    public Match(String matchID, String matchType, String matchDate, String startIme) {
+    public Match(String matchID, String matchType, String matchDate, String startIme,String team1,String team2) {
         this.matchID = matchID;
         this.matchType = matchType;
         this.matchDate = matchDate;
         this.startIme = startIme;
-
+        this.team1=team1;
+        this.team2=team2;
 
         seatingAreas.add(new SeatingArea("A",20));
         seatingAreas.add(new SeatingArea("B",20));
@@ -55,5 +56,29 @@ public class Match {
 
     public void setStartIme(String startIme) {
         this.startIme = startIme;
+    }
+
+    public String getTeam1() {
+        return team1;
+    }
+
+    public void setTeam1(String team1) {
+        this.team1 = team1;
+    }
+
+    public String getTeam2() {
+        return team2;
+    }
+
+    public void setTeam2(String team2) {
+        this.team2 = team2;
+    }
+
+    public ArrayList<SeatingArea> getSeatingAreas() {
+        return seatingAreas;
+    }
+
+    public void setSeatingAreas(ArrayList<SeatingArea> seatingAreas) {
+        this.seatingAreas = seatingAreas;
     }
 }

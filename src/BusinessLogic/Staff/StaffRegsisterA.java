@@ -35,6 +35,10 @@ public class StaffRegsisterA {
 
     }
 
+    public ArrayList<Staff> getStaffArrayList() {
+    	
+    	return staffArrayList;
+    }
     public void addSalary(Boolean status, Double payement, Integer CNIC){
 
             for(int i=0;i<staffArrayList.size();i++){
@@ -48,6 +52,8 @@ public class StaffRegsisterA {
     }
 
     public Staff getLogin(Integer CNIC,String password){
+    	staffArrayList=this.getStaffArrayList();
+    	
          
         for(int i=0;i<staffArrayList.size();i++){
             if((CNIC.equals(staffArrayList.get(i).getCNIC()))&&(password.equals(staffArrayList.get(i).getPassword())))

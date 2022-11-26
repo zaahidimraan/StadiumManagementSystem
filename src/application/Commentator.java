@@ -109,7 +109,7 @@ public class Commentator {
 	    		Double payment=Double.parseDouble(staffSalary.getText());
 	    		Integer phone=Integer.parseInt(staffDuty.getText());
 	    		Main.getEntAssRegsister().addEntAss(roll, staffName.getText(), phone, staffType.getText(), payment);
-	    		m.changeScene("Commentator.fxml");
+	    		this.showTable(Event);
 	    	}
 	    	
 	    }
@@ -126,7 +126,7 @@ public class Commentator {
 	    		Double payment=Double.parseDouble(staffSalary.getText());
 	    		Integer phone=Integer.parseInt(staffDuty.getText());
 	    		Main.getEntAssRegsister().removeEntAss(phone, staffType.getText());
-	    		m.changeScene("Commentator.fxml");
+	    		this.showTable(Event);
 	    	}
 	    	
 	    }
@@ -143,8 +143,13 @@ public class Commentator {
 	    		Double payment=Double.parseDouble(staffSalary.getText());
 	    		Integer phone=Integer.parseInt(staffDuty.getText());
 	    		Main.getEntAssRegsister().updateEntAss(roll, staffName.getText(), phone, staffType.getText(), payment);
-	    		m.changeScene("Commentator.fxml");
+	    		this.showTable(Event);
 	    	} 	
+	    }
+	    
+	    public void BackHome(ActionEvent Event) throws IOException {
+	    	Main m=new Main();
+	    	m.changeScene("Home.fxml");
 	    }
 
 }

@@ -60,10 +60,10 @@ public class Match {
     @FXML
     private TableColumn<BusinessLogic.Match.Match, String> colRefNo;
     @FXML
-    private TableColumn<?, ?> colteam1;
+    private TableColumn<BusinessLogic.Match.Match, String> colteam1;
 
     @FXML
-    private TableColumn<?, ?> colteam2;
+    private TableColumn<BusinessLogic.Match.Match, String> colteam2;
     
     @FXML
     private TextField team1;
@@ -88,6 +88,8 @@ public class Match {
         colDueDate.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match, String>("matchDate"));
         colMatchType.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match, String>("matchType"));
         colPersonID.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match,String>("startIme"));
+        colteam1.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match, String>("team1"));
+        colteam2.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match,String>("team2"));
 		
         MatchTable.setItems(data);
 		
@@ -100,6 +102,8 @@ public class Match {
     	 personID.setText(b.getSelectedItem().getStartIme());
     	 MatchType.setText(b.getSelectedItem().getMatchType());
     	 MatchRefNo.setText(b.getSelectedItem().getMatchID());
+    	 team1.setText(b.getSelectedItem().getTeam1());
+    	 team2.setText(b.getSelectedItem().getTeam2());    	 
     	}
     }
     
@@ -111,8 +115,8 @@ public class Match {
     		info.setText("Enter Data in all fields");
     	}
     	else {
-    		Main.getMatchRegsister().addMatch(MatchRefNo.getText(),MatchType.getText(),dueDate.getText(),personID.getText());
-    		m.changeScene("Match.fxml");
+    		Main.getMatchRegsister().addMatch(MatchRefNo.getText(),MatchType.getText(),dueDate.getText(),personID.getText(),team1.getText(),team2.getText());
+    		this.MatchTable(Event);
     	}
     	
     }
@@ -126,7 +130,7 @@ public class Match {
     	}
     	else {
     		Main.getMatchRegsister().removeMatch(MatchRefNo.getText());
-    		m.changeScene("Match.fxml");
+    		this.MatchTable(Event);
     	}
     	
     }
@@ -139,9 +143,14 @@ public class Match {
     		info.setText("Enter Data in all fields");
     	}
     	else {
-    		Main.getMatchRegsister().updateMatch(MatchRefNo.getText(),MatchType.getText(),dueDate.getText(),personID.getText());
-    		m.changeScene("Match.fxml");
+    		Main.getMatchRegsister().updateMatch(MatchRefNo.getText(),MatchType.getText(),dueDate.getText(),personID.getText(),team1.getText(),team2.getText());
+    		this.MatchTable(Event);
     	}    	
+    }
+    
+    public void BackHome(ActionEvent Event) throws IOException {
+    	Main m=new Main();
+    	m.changeScene("Home.fxml");
     }
 
 }

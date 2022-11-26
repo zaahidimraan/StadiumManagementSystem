@@ -8,12 +8,11 @@ public class seatDetail {
     private Payment payment;
     private OrderFood orderFood;
 
-    public seatDetail(Integer seatNumber, String seatType, Double price, String m_ID, Payment payment, OrderFood orderFood) {
+    public seatDetail(Integer seatNumber, String seatType, Double price, String m_ID, OrderFood orderFood) {
         this.seatNumber = seatNumber;
         this.seatType = seatType;
         this.price = price;
         M_ID = m_ID;
-        this.payment = payment;
         this.orderFood = orderFood;
     }
 

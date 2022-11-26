@@ -27,13 +27,13 @@
                         <Button fx:id="register" layoutX="513.0" layoutY="31.0" mnemonicParsing="false" text="Payment" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <Button fx:id="register2111" layoutX="763.0" layoutY="214.0" mnemonicParsing="false" text="Show Reservation" textAlignment="CENTER" />
-                  <Button fx:id="register2112" layoutX="687.0" layoutY="214.0" mnemonicParsing="false" text="Edit" textAlignment="CENTER" />
-                  <TextField fx:id="fname" layoutX="75.0" layoutY="220.0" text="Name " />
-                  <TextField fx:id="fname1" layoutX="75.0" layoutY="264.0" text="CNIC" />
-                  <Button fx:id="register2115" layoutX="295.0" layoutY="238.0" mnemonicParsing="false" text="Book Seat" textAlignment="CENTER" />
-                  <Button fx:id="register2114" layoutX="295.0" layoutY="291.0" mnemonicParsing="false" text="Cancel Seat" textAlignment="CENTER" />
-                  <Button fx:id="register2113" layoutX="295.0" layoutY="338.0" mnemonicParsing="false" text="Update Seat" textAlignment="CENTER" />
+                  <Button fx:id="register2111" layoutX="763.0" layoutY="214.0" mnemonicParsing="false" onAction="#BillTable" text="Show Reservation" textAlignment="CENTER" />
+                  <Button fx:id="register2112" layoutX="687.0" layoutY="214.0" mnemonicParsing="false" onAction="#getSelectedRow" text="Edit" textAlignment="CENTER" />
+                  <TextField fx:id="fname" layoutX="75.0" layoutY="220.0" promptText="CNIC" />
+                  <TextField fx:id="fname1" layoutX="75.0" layoutY="264.0" promptText="Name" />
+                  <Button fx:id="register2115" layoutX="295.0" layoutY="238.0" mnemonicParsing="false" onAction="#addBill" text="Book Seat" textAlignment="CENTER" />
+                  <Button fx:id="register2114" layoutX="295.0" layoutY="291.0" mnemonicParsing="false" onAction="#removeBill" text="Cancel Seat" textAlignment="CENTER" />
+                  <Button fx:id="register2113" layoutX="295.0" layoutY="338.0" mnemonicParsing="false" onAction="#updateBill" text="Update Seat" textAlignment="CENTER" />
                   <MenuButton fx:id="seatingArea" layoutX="25.0" layoutY="309.0" mnemonicParsing="false" text="Seating Area">
                     <items>
                       <MenuItem mnemonicParsing="false" text="A" />
@@ -41,7 +41,7 @@
                       <MenuItem mnemonicParsing="false" text="C" />
                     </items>
                   </MenuButton>
-                  <TableView layoutY="-2.0" prefHeight="200.0" prefWidth="928.0">
+                  <TableView fx:id="billTable" layoutY="-2.0" prefHeight="200.0" prefWidth="928.0">
                     <columns>
                       <TableColumn fx:id="tableName" prefWidth="203.19997560977936" text="Name " />
                       <TableColumn fx:id="tableCNIC" prefWidth="231.19998168945312" text="CNIC" />

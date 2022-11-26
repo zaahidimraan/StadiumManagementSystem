@@ -1,6 +1,9 @@
 package BusinessLogic.Person;
 
+import DBHandling.PersonDB;
+
 import java.security.PrivateKey;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PersonRegsister {
@@ -17,12 +20,27 @@ public class PersonRegsister {
 
 	ArrayList<Person> personArrayList=new ArrayList<Person>();
 
-    public void addPerson(Integer CNIC, String name){
+    public void addPerson(Integer CNIC, String name) throws SQLException {
+
         personArrayList.add(new Person(CNIC,name));
+        PersonDB db=new PersonDB();
+        db.addPerson(new Person(CNIC,name));
     }
 
-    public void addSeatDetail(Integer seatNumber, String seatType, Double price, String m_ID, Payment payment, OrderFood orderFood){
-       personArrayList.get(index).addSeatDetail(seatNumber,seatType,price,m_ID,payment,orderFood);
+    public void updatePerson(Integer CNIC, String name) throws SQLException {
+
+        PersonDB db=new PersonDB();
+        db.updatePerson(new Person(CNIC,name));
+    }
+
+    public void removePerson(Integer CNIC,String name) throws SQLException {
+
+        PersonDB db=new PersonDB();
+        db.removePerson(new Person(CNIC,name));
+    }
+
+    public void addSeatDetail(Integer seatNumber, String seatType, Double price, String m_ID, OrderFood orderFood){
+       personArrayList.get(index).addSeatDetail(seatNumber,seatType,price,m_ID,orderFood);
     }
 
     public void addOrderFood(Integer foodID, Double price){
@@ -62,9 +80,13 @@ public class PersonRegsister {
              index=i;
     }
 
-    public ArrayList<Person> getPersonArrayList() {
+    public ArrayList<Person> getPersonArrayList() throws SQLException {
+        PersonDB db=new PersonDB();
+        personArrayList=db.getPersonArray();
         return personArrayList;
     }
+
+
 
     public void setPersonArrayList(ArrayList<Person> personArrayList) {
         this.personArrayList = personArrayList;

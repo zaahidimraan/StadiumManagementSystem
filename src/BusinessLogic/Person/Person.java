@@ -34,8 +34,8 @@ public class Person {
     return seats;
   }
 
-  public void addSeatDetail(Integer seatNumber, String seatType, Double price, String m_ID, Payment payment, OrderFood orderFood){
-    seats.add(new seatDetail(seatNumber,seatType,price,m_ID,payment,orderFood));
+  public void addSeatDetail(Integer seatNumber, String seatType, Double price, String m_ID, OrderFood orderFood){
+    seats.add(new seatDetail(seatNumber,seatType,price,m_ID,orderFood));
   }
 
   public void addOrderFood(Integer foodID, Double ptice){

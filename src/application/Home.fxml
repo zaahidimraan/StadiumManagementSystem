@@ -28,8 +28,8 @@
                   <TableColumn fx:id="matchtype" prefWidth="159.20001220703125" text="Match Type" />
                   <TableColumn fx:id="matchdate" prefWidth="134.4000244140625" text="Match Date" />
                   <TableColumn fx:id="matchtime" prefWidth="135.0" text="Match Time" />
-                  <TableColumn fx:id="team1" prefWidth="148.00006103515625" text="Team 1" />
-                  <TableColumn fx:id="team2" minWidth="0.0" prefWidth="92.800048828125" text="Team 2" />
+                  <TableColumn fx:id="colteam1" prefWidth="148.00006103515625" text="Team 1" />
+                  <TableColumn fx:id="colteam2" minWidth="0.0" prefWidth="92.800048828125" text="Team 2" />
                </columns>
             </TableView>
             <AnchorPane prefHeight="104.0" prefWidth="900.0">

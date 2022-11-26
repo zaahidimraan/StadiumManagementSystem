@@ -35,6 +35,11 @@ public class Home {
 
     @FXML
     private TableColumn<BusinessLogic.Match.Match,String> matchtype;
+    @FXML
+    private TableColumn<BusinessLogic.Match.Match,String> colteam1;
+
+    @FXML
+    private TableColumn<BusinessLogic.Match.Match,String> colteam2;
 
     @FXML
     private TextField password;
@@ -44,12 +49,6 @@ public class Home {
 
     @FXML
     private TableView<BusinessLogic.Match.Match> table;
-
-    @FXML
-    private TableColumn<Match,String> team1;
-
-    @FXML
-    private TableColumn<Match,String> team2;
     
     public void MatchTable(ActionEvent Event) throws SQLException {
     	Main m=new Main();
@@ -61,6 +60,9 @@ public class Home {
         matchdate.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match, String>("matchDate"));
         matchtype.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match, String>("matchType"));
         matchtime.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match,String>("startIme"));
+        colteam1.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match, String>("team1"));
+        colteam2.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Match.Match,String>("team2"));
+       
 		
         table.setItems(data);
 		

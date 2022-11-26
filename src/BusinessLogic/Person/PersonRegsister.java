@@ -16,6 +16,7 @@ public class PersonRegsister {
 
 	public void setM_ID(String m_ID) {
 		this.M_ID = m_ID;
+		System.out.println(m_ID);
 	}
 
 	ArrayList<Person> personArrayList=new ArrayList<Person>();

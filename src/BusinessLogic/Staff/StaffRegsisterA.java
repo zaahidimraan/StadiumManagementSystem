@@ -46,4 +46,16 @@ public class StaffRegsisterA {
 
 
     }
+
+    public boolean getLogin(Integer CNIC,String password){
+
+        for(int i=0;i<staffArrayList.size();i++){
+            if((CNIC.equals(staffArrayList.get(i).getCNIC()))&&(password.equals(staffArrayList.get(i).getPassword())))
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
 }

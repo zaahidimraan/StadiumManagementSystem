@@ -33,12 +33,13 @@
             <TextField fx:id="date" layoutX="46.0" layoutY="142.0" promptText="Date" />
             <TextField fx:id="salary" layoutX="46.0" layoutY="186.0" promptText="Salary" />
             <Button fx:id="staffAdd" layoutX="248.0" layoutY="55.0" mnemonicParsing="false" onAction="#addBill" prefHeight="25.0" prefWidth="55.0" text="Add" />
-            <Button fx:id="staffDelete" layoutX="248.0" layoutY="100.0" mnemonicParsing="false" onAction="#removeBill" prefHeight="25.0" prefWidth="55.0" text="Delete" />
-            <Button fx:id="staffUpdate" layoutX="248.0" layoutY="142.0" mnemonicParsing="false" onAction="#updateBill" prefHeight="25.0" prefWidth="55.0" text="Update" />
+            <Button fx:id="staffDelete" layoutX="248.0" layoutY="100.0" mnemonicParsing="false" onAction="#removeBill" prefHeight="25.0" prefWidth="55.0" text="Delete" visible="false" />
+            <Button fx:id="staffUpdate" layoutX="248.0" layoutY="142.0" mnemonicParsing="false" onAction="#updateBill" prefHeight="25.0" prefWidth="55.0" text="Update" visible="false" />
             <Button fx:id="staffBack" layoutX="512.0" layoutY="174.0" mnemonicParsing="false" onAction="#BackHome" prefHeight="25.0" prefWidth="55.0" text="Back" />
             <RadioButton fx:id="status" layoutX="46.0" layoutY="104.0" mnemonicParsing="false" text="Paid" />
             <Button fx:id="table" layoutX="768.0" layoutY="14.0" mnemonicParsing="false" onAction="#Salarytable" text="Show Table" />
             <Button fx:id="Edit" layoutX="647.0" layoutY="14.0" mnemonicParsing="false" onAction="#getSelectedRow" text="Edit" />
+            <TextField fx:id="cnic" layoutX="716.0" layoutY="68.0" promptText="Enter CNIC" />
          </children>
       </AnchorPane>
    </bottom>

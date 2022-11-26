@@ -72,7 +72,9 @@ public class Staff {
 
     private ArrayList<Salary> salaries=new ArrayList<Salary>();
 
-    public ArrayList<Salary> getSalaries() {
+    public ArrayList<Salary> getSalaries(Integer CNIC) throws SQLException {
+    	staffDB db=new staffDB();
+       salaries=db.getSalaryArray(CNIC);
         return salaries;
     }
 
@@ -81,7 +83,7 @@ public class Staff {
               if((salaries.get(i).getCNIC()==CNIC)&&(Month.equals(salaries.get(i).getMonth()))){
                   staffDB db=new staffDB();
                   db.removeSalary(CNIC,Month);
-                  salaries=db.getSalaryArray();
+                  salaries=db.getSalaryArray(CNIC);
                i=salaries.size();
               }
           }
@@ -89,14 +91,14 @@ public class Staff {
 
     public void addSalary(Boolean status, Double payement, Integer CNIC,String date,String month) throws SQLException {
         staffDB db=new staffDB();
-            db.addsSalary(new Salary(status, payement, CNIC,date,month));
-        salaries=db.getSalaryArray();
+         db.addsSalary(new Salary(status, payement, CNIC,date,month));
+        salaries=db.getSalaryArray(CNIC);
     }
 
     public void updateSalary(Boolean status,Double pay,Integer CNIC,String date,String Month) throws SQLException {
         staffDB db=new staffDB();
         db.updateSalary(new Salary(status,pay,CNIC,date,Month));
-        salaries=db.getSalaryArray();
+        salaries=db.getSalaryArray(CNIC);
     }
 
 }

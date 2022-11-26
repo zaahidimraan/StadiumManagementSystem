@@ -65,21 +65,29 @@ public class StaffRegsisterA {
 
     }
 
-    public ArrayList<Salary> getSalaryArray(Integer index) {
-    	return staffArrayList.get(0).getSalaries();
+    public ArrayList<Salary> getSalaryArray(Integer CNIC) throws SQLException {
+        for(int i=0;i<staffArrayList.size();i++)
+        	if(CNIC.intValue()==staffArrayList.get(i).getCNIC().intValue())
+    	          return staffArrayList.get(i).getSalaries(CNIC);
+		return null;
     }
 
     public void addSalary(Boolean status,Double pay,Integer CNIC,String date,String month) throws SQLException {
         staffArrayList=this.getStaffArrayList();
-        staffArrayList.get(0).addSalary(status,pay,CNIC,date,month);
+        for(int i=0;i<staffArrayList.size();i++)
+        	if(CNIC.intValue()==staffArrayList.get(i).getCNIC().intValue())
+               staffArrayList.get(i).addSalary(status,pay,CNIC,date,month);
     }
     public void removeSalary(Integer CNIC,String Month) throws SQLException {
-        staffArrayList=this.getStaffArrayList();
-        staffArrayList.get(0).removeSalary(CNIC,Month);
+        for(int i=0;i<staffArrayList.size();i++)
+        	if(CNIC.intValue()==staffArrayList.get(i).getCNIC().intValue())
+                   staffArrayList.get(i).removeSalary(CNIC,Month);
     }
     public void updateSalary(Boolean status,Double pay,Integer CNIC,String date,String Month) throws SQLException {
         staffArrayList=this.getStaffArrayList();
-        staffArrayList.get(0).updateSalary(status,pay,CNIC,date,Month);
+        for(int i=0;i<staffArrayList.size();i++)
+        	if(CNIC.intValue()==staffArrayList.get(i).getCNIC().intValue())
+               staffArrayList.get(i).updateSalary(status,pay,CNIC,date,Month);
     }
 
 }

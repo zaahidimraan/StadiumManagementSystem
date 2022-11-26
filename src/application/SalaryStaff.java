@@ -56,6 +56,8 @@ public class SalaryStaff {
 
     @FXML
     private TextField staffCNIC;
+    @FXML
+    private TextField cnic;
 
     @FXML
     private Button staffDelete;
@@ -71,13 +73,14 @@ public class SalaryStaff {
     
     public void Salarytable(ActionEvent Event) throws SQLException {
     	Main m=new Main();
-    	ArrayList<Salary> stu = m.getStaffRegsister().getSalaryArray(0);
+    	Integer value=Integer.valueOf(Integer.parseInt(cnic.getText()));
+    	ArrayList<Salary> stu = m.getStaffRegsister().getSalaryArray(value);
     	
 
 		final ObservableList<Salary> data = FXCollections.observableArrayList(stu);
         colStaffCNIC.setCellValueFactory(new PropertyValueFactory<Salary, Integer>("CNIC"));
         colDate.setCellValueFactory(new PropertyValueFactory<Salary, String>("date"));
-        colStaffSalary.setCellValueFactory(new PropertyValueFactory<Salary, Double>("payment"));
+        colStaffSalary.setCellValueFactory(new PropertyValueFactory<Salary, Double>("payement"));
         colMonth.setCellValueFactory(new PropertyValueFactory<Salary,String>("month"));
         colStatus.setCellValueFactory(new PropertyValueFactory<Salary,Boolean>("Status"));
 		

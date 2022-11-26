@@ -83,7 +83,7 @@ public class staffDB {
     }
 
     // Salary Management
-    public ArrayList<Salary> getSalaryArray() throws SQLException {
+    public ArrayList<Salary> getSalaryArray(Integer CNIC) throws SQLException {
 
 
         ArrayList<Salary> arr = new ArrayList<Salary>();
@@ -93,18 +93,22 @@ public class staffDB {
         ResultSet rs = stm.executeQuery(query);
 
         while(rs.next()) {
-        	
-            Salary temp = new Salary(rs.getBoolean(2),rs.getDouble(3),rs.getInt(1),rs.getString(4),rs.getString(5));
-            arr.add(temp);
+        	if(rs.getInt(1)==CNIC)
+        		arr.add(new Salary(rs.getBoolean(2),rs.getDouble(3),rs.getInt(1),rs.getString(4),rs.getString(5)));
+             
         }
 
         return arr;
     }
 
     public void addsSalary(Salary staff) throws SQLException {
+    	int temp=0;
+    	if(staff.getStatus())
+    		temp=1;
+    	else
+    		temp=0;
 
-
-        String query="insert into Salary VALUES("+staff.getCNIC()+",'"+staff.getStatus()+"','"+staff.getPayement()+"','"+staff.getMonth()+"','"
+        String query="insert into Salary VALUES("+staff.getCNIC()+",'"+temp+"','"+staff.getPayement()+"','"+staff.getMonth()+"','"
                 +staff.getDate()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query);
@@ -128,8 +132,13 @@ public class staffDB {
 
         // execute the preparedstatement
         preparedStmt.execute();
+        int temp=0;
+    	if(staff.getStatus())
+    		temp=1;
+    	else
+    		temp=0;
 
-        String query1="insert into salary VALUES("+staff.getCNIC()+",'"+staff.getStatus()+"','"+staff.getPayement()+"','"+staff.getMonth()+"','"
+        String query1="insert into salary VALUES("+staff.getCNIC()+",'"+temp+"','"+staff.getPayement()+"','"+staff.getMonth()+"','"
                 +staff.getDate()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query1);

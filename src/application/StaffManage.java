@@ -77,6 +77,7 @@ public class StaffManage {
     private TextField personID;
     @FXML
     private Button Edit;
+ /*
     
     public void BillTable(ActionEvent Event) throws SQLException {
     	Main m=new Main();
@@ -102,9 +103,9 @@ public class StaffManage {
     	 personID.setText(b.getSelectedItem().getPersonID().toString());
     	 billType.setText(b.getSelectedItem().getBillType());
     	 if(b.getSelectedItem().getBillStatus())
-    		 billStatus.setSelected(true);
+    		 //billStatus.setSelected(true);
     	 else
-    		 billStatus.setSelected(false);
+    		 //billStatus.setSelected(false);
     	 billRefNo.setText(b.getSelectedItem().getBillRefNo().toString());
     	 billPayment.setText(b.getSelectedItem().getPayment().toString());
     	}
@@ -121,7 +122,7 @@ public class StaffManage {
     		Integer roll=Integer.parseInt(billRefNo.getText());
     		Double payment=Double.parseDouble(billPayment.getText());
     		Integer person=Integer.parseInt(personID.getText());
-    		Boolean status=billStatus.isSelected();
+    		//Boolean status=billStatus.isSelected();
     		Main.getBillHandler().addBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
     		m.changeScene("Bill.fxml");
     	}
@@ -139,7 +140,7 @@ public class StaffManage {
     		Integer roll=Integer.parseInt(billRefNo.getText());
     		Double payment=Double.parseDouble(billPayment.getText());
     		Integer person=Integer.parseInt(personID.getText());
-    		Boolean status=billStatus.isSelected();
+    		//Boolean status=billStatus.isSelected();
     		Main.getBillHandler().removeBill(roll);
     		m.changeScene("Bill.fxml");
     	}
@@ -157,10 +158,10 @@ public class StaffManage {
     		Integer roll=Integer.parseInt(billRefNo.getText());
     		Double payment=Double.parseDouble(billPayment.getText());
     		Integer person=Integer.parseInt(personID.getText());
-    		Boolean status=billStatus.isSelected();
+    		//Boolean status=billStatus.isSelected();
     		Main.getBillHandler().updateBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
     		m.changeScene("Bill.fxml");
     	}    	
     }
-
+*/
 }

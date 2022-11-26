@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import BusinessLogic.Bill.BillHandler;
 import BusinessLogic.EntAss.EntAssRegsisterBL;
 import BusinessLogic.Match.MatchRegsister;
+import BusinessLogic.Person.PersonRegsister;
 import BusinessLogic.Staff.StaffRegsister;
 import javafx.stage.Stage;
 import javafx.scene.*;
@@ -19,13 +20,14 @@ public class Main extends Application {
 	private static EntAssRegsisterBL entAssRegsister=new EntAssRegsisterBL();
 	private static MatchRegsister matchRegsister=new MatchRegsister();
 	private static StaffRegsister staffRegsister=new StaffRegsister();
+	private static PersonRegsister personRegsister=new PersonRegsister();
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			this.stg = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("BookTicket.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
 			Scene scene = new Scene(root, 900, 600);
-			primaryStage.setTitle("Booking EntAss");
+			primaryStage.setTitle("Horizon Stadium");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
@@ -54,8 +56,19 @@ public class Main extends Application {
 		return staffRegsister;
 	}
 	
+	
+	public static PersonRegsister getPersonRegsister() {
+		return personRegsister;
+	}
+
+	public static void setPersonRegsister(PersonRegsister personRegsister) {
+		Main.personRegsister = personRegsister;
+	}
+
 	public void changeScene(String fxml) throws IOException {
 		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
 		stg.getScene().setRoot(pane);
 	}
+
+
 }

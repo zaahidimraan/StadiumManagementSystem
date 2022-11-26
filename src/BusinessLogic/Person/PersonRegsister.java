@@ -6,8 +6,16 @@ import java.util.ArrayList;
 public class PersonRegsister {
     private Integer CNIC;
     private Integer index;
+    private String M_ID;
+    public String getM_ID() {
+		return M_ID;
+	}
 
-    ArrayList<Person> personArrayList=new ArrayList<Person>();
+	public void setM_ID(String m_ID) {
+		this.M_ID = m_ID;
+	}
+
+	ArrayList<Person> personArrayList=new ArrayList<Person>();
 
     public void addPerson(Integer CNIC, String name){
         personArrayList.add(new Person(CNIC,name));

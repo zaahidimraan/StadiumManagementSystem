@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManageStaff">
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Home">
    <bottom>
       <AnchorPane prefHeight="74.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="bookticket" layoutX="377.0" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="146.0" text="Book Ticket" />
-            <Button fx:id="show" layoutX="733.0" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="146.0" text="Show Table" />
+            <Button fx:id="bookticket" layoutX="377.0" layoutY="18.0" mnemonicParsing="false" onAction="#getSelectedRow" prefHeight="38.0" prefWidth="146.0" text="Book Ticket" />
+            <Button fx:id="show" layoutX="733.0" layoutY="18.0" mnemonicParsing="false" onAction="#MatchTable" prefHeight="38.0" prefWidth="146.0" text="Show Table" />
          </children>
       </AnchorPane>
    </bottom>
@@ -41,10 +41,11 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Label layoutX="764.0" layoutY="116.0" text="Password" />
-            <TextField fx:id="password" layoutX="718.0" layoutY="159.0" />
-            <Label layoutX="597.0" layoutY="116.0" text="LOGIN ID" />
-            <TextField fx:id="login" layoutX="548.0" layoutY="159.0" />
+            <Label layoutX="764.0" layoutY="116.0" />
+            <TextField fx:id="password" layoutX="586.0" layoutY="159.0" promptText="Password" />
+            <Label layoutX="597.0" layoutY="116.0" />
+            <TextField fx:id="login" layoutX="414.0" layoutY="159.0" promptText="Login" />
+            <Button fx:id="loginButton" layoutX="778.0" layoutY="159.0" mnemonicParsing="false" text="Login" />
          </children>
       </AnchorPane>
    </center>

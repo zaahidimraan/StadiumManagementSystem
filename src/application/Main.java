@@ -25,7 +25,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			this.stg = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("BookTicket.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
 			Scene scene = new Scene(root, 900, 600);
 			primaryStage.setTitle("Horizon Stadium");
 			primaryStage.setScene(scene);

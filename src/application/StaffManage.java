@@ -2,7 +2,6 @@ package application;
 
 import java.util.ArrayList;
 
-import BusinessLogic.Bill.BillDetail;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -24,7 +23,7 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 public class StaffManage {
 
     @FXML
-    private TableView<BillDetail> billTable;
+    private TableView<BusinessLogic.Staff.Staff> billTable;
     @FXML
     private Label info;
 
@@ -54,22 +53,22 @@ public class StaffManage {
     private TextField billType;
 
     @FXML
-    private TableColumn<BillDetail, Boolean> colBillStatus;
+    private TableColumn<BusinessLogic.Staff.Staff, String> colBillStatus;
 
     @FXML
-    private TableColumn<BillDetail, String> colBillType;
+    private TableColumn<BusinessLogic.Staff.Staff, String> colBillType;
 
     @FXML
-    private TableColumn<BillDetail, String> colDueDate;
+    private TableColumn<BusinessLogic.Staff.Staff, String> colDueDate;
 
     @FXML
-    private TableColumn<BillDetail, Double> colPayment;
+    private TableColumn<BusinessLogic.Staff.Staff, Double> colPayment;
 
     @FXML
-    private TableColumn<BillDetail, Integer> colPersonID;
+    private TableColumn<BusinessLogic.Staff.Staff, String> colPersonID;
 
     @FXML
-    private TableColumn<BillDetail, Integer> colRefNo;
+    private TableColumn<BusinessLogic.Staff.Staff, Integer> colRefNo;
 
     @FXML
     private TextField dueDate;
@@ -77,20 +76,20 @@ public class StaffManage {
     private TextField personID;
     @FXML
     private Button Edit;
- /*
+ 
     
     public void BillTable(ActionEvent Event) throws SQLException {
     	Main m=new Main();
-    	ArrayList<BillDetail> stu = m.getBillHandler().getBillArrayList();;
+    	ArrayList<BusinessLogic.Staff.Staff> stu = m.getStaffRegsister().getStaffArrayList();
     	
 
-		final ObservableList<BillDetail> data = FXCollections.observableArrayList(stu);
-        colRefNo.setCellValueFactory(new PropertyValueFactory<BillDetail, Integer>("billRefNo"));
-        colDueDate.setCellValueFactory(new PropertyValueFactory<BillDetail, String>("billDate"));
-        colBillType.setCellValueFactory(new PropertyValueFactory<BillDetail, String>("billType"));
-        colPersonID.setCellValueFactory(new PropertyValueFactory<BillDetail,Integer>("personID"));
-        colPayment.setCellValueFactory(new PropertyValueFactory<BillDetail,Double>("payment"));
-        colBillStatus.setCellValueFactory(new PropertyValueFactory<BillDetail,Boolean>("billStatus"));
+		final ObservableList<BusinessLogic.Staff.Staff> data = FXCollections.observableArrayList(stu);
+        colRefNo.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Staff.Staff, Integer>("CNIC"));
+        colDueDate.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Staff.Staff, String>("name"));
+        colBillType.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Staff.Staff, String>("type"));
+        colPersonID.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Staff.Staff,String>("duty"));
+        colPayment.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Staff.Staff,Double>("salary"));
+        colBillStatus.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Staff.Staff,String>("password"));
 		
         billTable.setItems(data);
 		
@@ -98,16 +97,13 @@ public class StaffManage {
     
     public void getSelectedRow(ActionEvent Event) {
     	if(billTable.getSelectionModel() != null) {
-    	 TableViewSelectionModel<BillDetail> b=billTable.getSelectionModel();
-    	 dueDate.setText(b.getSelectedItem().getBillDate());
-    	 personID.setText(b.getSelectedItem().getPersonID().toString());
-    	 billType.setText(b.getSelectedItem().getBillType());
-    	 if(b.getSelectedItem().getBillStatus())
-    		 //billStatus.setSelected(true);
-    	 else
-    		 //billStatus.setSelected(false);
-    	 billRefNo.setText(b.getSelectedItem().getBillRefNo().toString());
-    	 billPayment.setText(b.getSelectedItem().getPayment().toString());
+    	 TableViewSelectionModel<BusinessLogic.Staff.Staff> b=billTable.getSelectionModel();
+    	 dueDate.setText(b.getSelectedItem().getName());
+    	 personID.setText(b.getSelectedItem().getDuty());
+    	 billType.setText(b.getSelectedItem().getType());
+    	 billStatus.setText(b.getSelectedItem().getPassword());
+    	 billRefNo.setText(b.getSelectedItem().getCNIC().toString());
+    	 billPayment.setText(b.getSelectedItem().getSalary().toString());
     	}
     }
     
@@ -121,10 +117,9 @@ public class StaffManage {
     	else {
     		Integer roll=Integer.parseInt(billRefNo.getText());
     		Double payment=Double.parseDouble(billPayment.getText());
-    		Integer person=Integer.parseInt(personID.getText());
-    		//Boolean status=billStatus.isSelected();
-    		Main.getBillHandler().addBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
-    		m.changeScene("Bill.fxml");
+    		
+    		Main.getStaffRegsister().addPerson(roll, dueDate.getText(), billType.getText(), payment, personID.getText(), billStatus.getText());
+    		this.BillTable(Event);
     	}
     	
     }
@@ -138,11 +133,8 @@ public class StaffManage {
     	}
     	else {
     		Integer roll=Integer.parseInt(billRefNo.getText());
-    		Double payment=Double.parseDouble(billPayment.getText());
-    		Integer person=Integer.parseInt(personID.getText());
-    		//Boolean status=billStatus.isSelected();
-    		Main.getBillHandler().removeBill(roll);
-    		m.changeScene("Bill.fxml");
+    		Main.getStaffRegsister().removePerson(roll, billType.getText());
+    		this.BillTable(Event);
     	}
     	
     }
@@ -157,11 +149,16 @@ public class StaffManage {
     	else {
     		Integer roll=Integer.parseInt(billRefNo.getText());
     		Double payment=Double.parseDouble(billPayment.getText());
-    		Integer person=Integer.parseInt(personID.getText());
-    		//Boolean status=billStatus.isSelected();
-    		Main.getBillHandler().updateBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
-    		m.changeScene("Bill.fxml");
+    		
+    		Main.getStaffRegsister().updatePerson(roll, dueDate.getText(), billType.getText(), payment, personID.getText(), billStatus.getText());
+    		this.BillTable(Event);
     	}    	
     }
-*/
+    
+    public void BackPage(ActionEvent Event) throws IOException {
+   	 Main m=new Main();
+    	m.changeScene("Home.fxml");
+    	
+   }
+
 }

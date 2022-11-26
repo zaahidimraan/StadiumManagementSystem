@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.sql.*;
 import BusinessLogic.*;
 import BusinessLogic.Bill.BillDetail;
+import BusinessLogic.Person.OrderFood;
 import BusinessLogic.Person.Person;
 
 public class PersonDB {
@@ -38,6 +39,36 @@ public class PersonDB {
 
         while(rs.next()) {
             Person temp = new Person(rs.getInt(1),rs.getString(2));
+            if(rs.getString(4).equals("A")) {
+                if(rs.getInt(6)==1)
+                 temp.setSeat(rs.getInt(3), rs.getString(4), 1500.0, rs.getString(5), rs.getInt(6),1000.0);
+                else if(rs.getInt(6)==2)
+                    temp.setSeat(rs.getInt(3), rs.getString(4), 1500.0, rs.getString(5), rs.getInt(6),800.0);
+                else if (rs.getInt(6)==3) {
+                    temp.setSeat(rs.getInt(3), rs.getString(4), 1500.0, rs.getString(5), rs.getInt(6),500.0);
+                }
+            }
+            else if(rs.getString(4).equals("B")){
+                if(rs.getInt(6)==1)
+                    temp.setSeat(rs.getInt(3), rs.getString(4), 1000.0, rs.getString(5), rs.getInt(6),1000.0);
+                else if(rs.getInt(6)==2)
+                    temp.setSeat(rs.getInt(3), rs.getString(4), 1000.0, rs.getString(5), rs.getInt(6),800.0);
+                else if (rs.getInt(6)==3) {
+                    temp.setSeat(rs.getInt(3), rs.getString(4), 1000.0, rs.getString(5), rs.getInt(6),500.0);
+                }
+            }
+            else if(rs.getString(4).equals("C")){
+                if(rs.getInt(6)==1)
+                    temp.setSeat(rs.getInt(3), rs.getString(4), 500.0, rs.getString(5), rs.getInt(6),1000.0);
+                else if(rs.getInt(6)==2)
+                    temp.setSeat(rs.getInt(3), rs.getString(4), 500.0, rs.getString(5), rs.getInt(6),800.0);
+                else if (rs.getInt(6)==3) {
+                    temp.setSeat(rs.getInt(3), rs.getString(4), 500.0, rs.getString(5), rs.getInt(6),500.0);
+                }
+            }
+
+
+
             arr.add(temp);
         }
 
@@ -46,7 +77,8 @@ public class PersonDB {
 
     public void addPerson(Person bill) throws SQLException {
 
-        String query="insert into Person VALUES("+bill.getCNIC()+",'"+bill.getName()+"')";
+        String query="insert into Person VALUES("+bill.getCNIC()+",'"+bill.getName()+"','"+bill.getSeat().getSeatNumber()+"','"+bill.getSeat().getSeatType()+"'" +
+                ",'"+bill.getSeat().getM_ID()+"','"+bill.getSeat().getOrderFood().getFoodID()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query);
     }
@@ -60,15 +92,16 @@ public class PersonDB {
         preparedStmt.execute();
     }
 
-    public void updatePerson(Person person) throws SQLException {
+    public void updatePerson(Person bill) throws SQLException {
         String query = "delete from Person where V_CNIC = ?";
         PreparedStatement preparedStmt = con.prepareStatement(query);
-        preparedStmt.setInt(1, person.getCNIC());
+        preparedStmt.setInt(1, bill.getCNIC());
 
         // execute the preparedstatement
         preparedStmt.execute();
 
-        String query1="insert into Person VALUES("+person.getCNIC()+",'"+person.getName()+"')";
+        String query1="insert into Person VALUES("+bill.getCNIC()+",'"+bill.getName()+"','"+bill.getSeat().getSeatNumber()+"','"+bill.getSeat().getSeatType()+"'" +
+                ",'"+bill.getSeat().getM_ID()+"','"+bill.getSeat().getOrderFood().getFoodID()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query1);
     }

@@ -1,27 +1,35 @@
 package BusinessLogic.Staff;
 
+import DBHandling.staffDB;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class StaffRegsisterA {
     private ArrayList<Staff> staffArrayList=new ArrayList<Staff>();
     private Integer personID;
 
-    public void addPerson(Integer CNIC, String name, String type, Double salary, String duty,String password){
+
+    public void addPerson(Integer CNIC, String name, String type, Double salary, String duty, String password) throws SQLException {
+     staffDB db=new staffDB();
+     db.addstaff(new Staff(CNIC,name,type,salary,duty,password));
      staffArrayList.add(new Staff(CNIC,name,type,salary,duty,password));
     }
 
-    public void removePerson(Integer CNIC,String type){
+    public void removePerson(Integer CNIC,String type) throws SQLException {
 
             for(int i=0;i<staffArrayList.size();i++){
                 if(CNIC==staffArrayList.get(i).getCNIC()) {
                     staffArrayList.remove(i);
+                    staffDB db=new staffDB();
+                    db.removestaff(CNIC);
                     i=staffArrayList.size();
                 }
             }
 
     }
 
-    public void updatePerson(Integer CNIC, String name, String type, Double salary, String duty){
+    public void updatePerson(Integer CNIC, String name, String type, Double salary, String duty,String password) throws SQLException {
 
             for(int i=0;i<staffArrayList.size();i++){
                 if(CNIC==staffArrayList.get(i).getCNIC()) {
@@ -29,14 +37,17 @@ public class StaffRegsisterA {
                     staffArrayList.get(i).setType(type);
                     staffArrayList.get(i).setSalary(salary);
                     staffArrayList.get(i).setDuty(duty);
+                    staffDB db=new staffDB();
+                    db.updatestaff(new Staff(CNIC,name,type,salary,duty,password));
                     i=staffArrayList.size();
                 }
             }
 
     }
 
-    public ArrayList<Staff> getStaffArrayList() {
-    	
+    public ArrayList<Staff> getStaffArrayList() throws SQLException {
+        staffDB db=new staffDB();
+        staffArrayList=db.getstaffArray();
     	return staffArrayList;
     }
     public void addSalary(Boolean status, Double payement, Integer CNIC){
@@ -51,7 +62,7 @@ public class StaffRegsisterA {
 
     }
 
-    public Staff getLogin(Integer CNIC,String password){
+    public Staff getLogin(Integer CNIC,String password) throws SQLException {
     	staffArrayList=this.getStaffArrayList();
     	
          

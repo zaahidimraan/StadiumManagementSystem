@@ -10,7 +10,7 @@
    <bottom>
       <AnchorPane prefHeight="115.0" prefWidth="918.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="main" layoutX="733.0" layoutY="38.0" mnemonicParsing="false" onAction="#backHome" prefHeight="38.0" prefWidth="146.0" text="Main" />
+            <Button fx:id="main" layoutX="733.0" layoutY="38.0" mnemonicParsing="false" onAction="#BackPage" prefHeight="38.0" prefWidth="146.0" text="Main" />
          </children>
       </AnchorPane>
    </bottom>
@@ -26,15 +26,15 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Button fx:id="managebill" layoutX="636.0" layoutY="356.0" mnemonicParsing="false" onAction="#billPage" prefHeight="38.0" prefWidth="190.0" text="Manage Bills" />
-            <Button fx:id="manageent" layoutX="636.0" layoutY="225.0" mnemonicParsing="false" onAction="#entAssPage" prefHeight="38.0" prefWidth="190.0" text="Manage Entertainment Assistant" />
-            <Button fx:id="managematch" layoutX="636.0" layoutY="293.0" mnemonicParsing="false" onAction="#matchPage" prefHeight="38.0" prefWidth="190.0" text="Manage Matches" />
+            <Button fx:id="managebill" layoutX="636.0" layoutY="356.0" mnemonicParsing="false" onAction="#BillPage" prefHeight="38.0" prefWidth="190.0" text="Manage Bills" />
+            <Button fx:id="manageent" layoutX="636.0" layoutY="225.0" mnemonicParsing="false" onAction="#EntAssPage" prefHeight="38.0" prefWidth="190.0" text="Manage Entertainment Assistant" />
+            <Button fx:id="managematch" layoutX="636.0" layoutY="293.0" mnemonicParsing="false" onAction="#MatchPage" prefHeight="38.0" prefWidth="190.0" text="Manage Matches" />
             <Label layoutX="82.0" layoutY="164.0" text="ADMIN STAFF">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Button layoutX="636.0" layoutY="177.0" mnemonicParsing="false" onAction="#staffPage" prefHeight="33.0" prefWidth="193.0" text="Manage Empolyee" />
+            <Button layoutX="636.0" layoutY="177.0" mnemonicParsing="false" onAction="#StaffPage" prefHeight="33.0" prefWidth="193.0" text="Manage Empolyee" />
          </children>
       </AnchorPane>
    </left>

@@ -8,13 +8,14 @@ public class seatDetail {
     private Payment payment;
     private OrderFood orderFood;
 
-    public seatDetail(Integer seatNumber, String seatType, Double price, String m_ID, OrderFood orderFood) {
+    public seatDetail(Integer seatNumber, String seatType, Double price, String m_ID, Integer F_ID,Double Fprice) {
         this.seatNumber = seatNumber;
         this.seatType = seatType;
-        this.price = price;
         M_ID = m_ID;
         this.orderFood = orderFood;
+        orderFood=new OrderFood(F_ID,Fprice);
     }
+
 
     public Integer getSeatNumber() {
         return seatNumber;
@@ -44,9 +45,6 @@ public class seatDetail {
         return M_ID;
     }
 
-    public void setM_ID(String m_ID) {
-        M_ID = m_ID;
-    }
 
     public Payment getPayment() {
         return payment;
@@ -60,7 +58,4 @@ public class seatDetail {
         return orderFood;
     }
 
-    public void setOrderFood(OrderFood orderFood) {
-        this.orderFood = orderFood;
-    }
 }

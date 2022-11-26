@@ -40,13 +40,10 @@ public class PersonRegsister {
         db.removePerson(new Person(CNIC,name));
     }
 
-    public void addSeatDetail(Integer seatNumber, String seatType, Double price, String m_ID, OrderFood orderFood){
-       personArrayList.get(index).addSeatDetail(seatNumber,seatType,price,m_ID,orderFood);
+    public void addSeatDetail(Integer seatNumber, String seatType, Double price, String m_ID, Integer F_ID,Double Fprice){
+       personArrayList.get(index).setSeat(seatNumber, seatType, price, m_ID,F_ID,Fprice);
     }
 
-    public void addOrderFood(Integer foodID, Double price){
-       personArrayList.get(index).addOrderFood(foodID,price);
-    }
 
     public void addPayment(Double payment, Boolean paymentStatus, String paymentMethod){
         personArrayList.get(index).addPayment(payment,paymentStatus,paymentMethod);
@@ -54,9 +51,6 @@ public class PersonRegsister {
 
     public Payment getPayment(){
         return personArrayList.get(index).getPayment();
-    }
-    public seatDetail getSeatDetail(){
-        return personArrayList.get(index).getSeatDetail();
     }
 
     public OrderFood getOrderFood(){

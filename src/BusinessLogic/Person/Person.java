@@ -5,13 +5,56 @@ import java.util.ArrayList;
 public class Person {
   Integer CNIC;
   String name;
-  ArrayList<seatDetail> seats=new ArrayList<seatDetail>();
+  private seatDetail seat;
 
-  private Integer index;
+  public seatDetail getSeat() {
+    return seat;
+  }
 
-  public Person(Integer CNIC, String name) {
+  public void setSeat(Integer seatNumber, String seatType, Double price, String m_ID, Integer F_ID,Double Fprice) {
+    this.seat = new seatDetail(seatNumber, seatType, price, m_ID,F_ID,Fprice);
+  }
+
+  public Person(Integer CNIC, String name){
     this.CNIC = CNIC;
     this.name = name;
+  }
+  public Person(Integer CNIC, String name,Integer seatNumber, String seatType, String m_ID,Integer F_ID) {
+    this.CNIC = CNIC;
+    this.name = name;
+    Double price=0.0;
+    Double Fprice=0.0;
+    if(seatType.equals("A")) {
+      price=1500.0;
+      if(F_ID==1)
+        Fprice=1000.0;
+      else if(F_ID==2)
+        Fprice=800.0;
+      else if (F_ID==3) {
+        Fprice=500.0;
+      }
+    }
+    else if(seatType.equals("B")){
+      price=1000.0;
+      if(F_ID==1)
+        Fprice=1000.0;
+      else if(F_ID==2)
+        Fprice=800.0;
+      else if (F_ID==3) {
+        Fprice=500.0;
+      }
+    }
+    else if(seatType.equals("C")){
+      price=500.0;
+      if(F_ID==1)
+        Fprice=1000.0;
+      else if(F_ID==2)
+        Fprice=800.0;
+      else if (F_ID==3) {
+        Fprice=500.0;
+      }
+    }
+    seat=new seatDetail(seatNumber, seatType, price, m_ID,F_ID,Fprice);
   }
 
   public void setCNIC(Integer CNIC) {
@@ -30,42 +73,18 @@ public class Person {
     return name;
   }
 
-  public ArrayList<seatDetail> getSeats() {
-    return seats;
-  }
-
-  public void addSeatDetail(Integer seatNumber, String seatType, Double price, String m_ID, OrderFood orderFood){
-    seats.add(new seatDetail(seatNumber,seatType,price,m_ID,orderFood));
-  }
-
-  public void addOrderFood(Integer foodID, Double ptice){
-    seats.get(index).setOrderFood(new OrderFood(foodID,ptice));
-  }
 
   public void addPayment(Double payment, Boolean paymentStatus, String paymentMethod){
-    seats.get(index).setPayment(new Payment(payment,paymentStatus,paymentMethod));
+    seat.setPayment(new Payment(payment,paymentStatus,paymentMethod));
   }
 
-  public Integer getIndex() {
-    return index;
-  }
 
-  public void setIndex(String M_ID,Integer seatNo) {
-    for(int i=0;i<seats.size();i++){
-      if((M_ID.equals(seats.get(i).getM_ID()))&&(seatNo.equals(seats.get(i).getSeatNumber())))
-        index=i;
-    }
-    this.index = index;
-  }
 
   public Payment getPayment(){
-    return seats.get(index).getPayment();
-  }
-  public seatDetail getSeatDetail(){
-    return seats.get(index);
+    return seat.getPayment();
   }
 
   public OrderFood getOrderFood(){
-    return seats.get(index).getOrderFood();
+    return seat.getOrderFood();
   }
 }

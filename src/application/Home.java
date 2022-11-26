@@ -78,15 +78,15 @@ public class Home {
     	}
     }
     
-    public void LoginUser(ActionEvent Event) throws IOException {
+    public void LoginUser(ActionEvent Event) throws IOException, NumberFormatException, SQLException {
     	Main m=new Main();
     	String CNIC=login.getText(); 
     	Staff sm=m.getStaffRegsister().getLogin(Integer.valueOf(Integer.parseInt(CNIC)),password.getText());
     	if(sm!=null) {
     		if(sm.getType().equals("Admin"))
-    			m.changeScene("staffpage.fxml");
-    		else
     			m.changeScene("adminpage.fxml");
+    		else
+    			m.changeScene("staffpage.fxml");
     	}
     	else {
     		login.setText("Wrong Entry");
@@ -124,7 +124,6 @@ public class Home {
     	 Main m=new Main();
      	m.changeScene("Home.fxml");
      	
-    	
     }
 
 }

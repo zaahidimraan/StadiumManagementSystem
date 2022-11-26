@@ -18,7 +18,7 @@
                   <TableColumn fx:id="colDueDate" prefWidth="118.0" text="Name" />
                   <TableColumn fx:id="colBillType" prefWidth="167.0" text="Type" />
                   <TableColumn fx:id="colPersonID" prefWidth="148.0" text="Duty" />
-                  <TableColumn fx:id="colPayment" minWidth="0.0" prefWidth="141.0" text="Payment" />
+                  <TableColumn fx:id="colPayment" minWidth="0.0" prefWidth="141.0" text="Pay" />
                   <TableColumn fx:id="colBillStatus" prefWidth="137.0" text="Password" />
               </columns>
             </TableView>
@@ -36,11 +36,11 @@
             <Button fx:id="Add" layoutX="248.0" layoutY="55.0" mnemonicParsing="false" onAction="#addBill" prefHeight="25.0" prefWidth="55.0" text="Add" />
             <Button fx:id="Delete" layoutX="248.0" layoutY="100.0" mnemonicParsing="false" onAction="#removeBill" prefHeight="25.0" prefWidth="55.0" text="Delete" />
             <Button fx:id="Update" layoutX="248.0" layoutY="142.0" mnemonicParsing="false" onAction="#updateBill" prefHeight="25.0" prefWidth="55.0" text="Update" />
-            <Button fx:id="Back" layoutX="512.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Back" />
+            <Button fx:id="Back" layoutX="512.0" layoutY="174.0" mnemonicParsing="false" onAction="#BackPage" prefHeight="25.0" prefWidth="55.0" text="Back" />
             <Button fx:id="show" layoutX="762.0" layoutY="21.0" mnemonicParsing="false" onAction="#BillTable" text="Show Table" />
             <Button fx:id="Edit" layoutX="668.0" layoutY="21.0" mnemonicParsing="false" onAction="#getSelectedRow" text="Edit " />
             <Label fx:id="info" layoutX="248.0" layoutY="199.0" />
-            <TextField fx:id="billStatus" layoutX="46.0" layoutY="195.0" promptText="Paaword" />
+            <TextField fx:id="billStatus" layoutX="46.0" layoutY="195.0" promptText="Password" />
          </children>
       </AnchorPane>
    </bottom>

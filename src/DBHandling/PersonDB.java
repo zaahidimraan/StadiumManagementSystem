@@ -110,7 +110,7 @@ public class PersonDB {
         preparedStmt.execute();
     }
 
-    public Payment getPayment(Person person) throws SQLException {
+    public Person getPayment(Person person) throws SQLException {
         Statement stm;
         String query="SELECT * FROM PersonPaymentDetail";
         stm=con.createStatement();
@@ -118,8 +118,10 @@ public class PersonDB {
         String M_ID=person.getSeat().getM_ID();
         Integer CNIC=person.getCNIC();
         while(rs.next()) {
+        	
             if((M_ID.equals(rs.getString(2)))&&(CNIC==rs.getInt(1))) {
-               return (new Payment(rs.getDouble(3),rs.getBoolean(4),rs.getString(5)));
+            	person.getSeat().setPayment(new Payment(rs.getDouble(3),rs.getBoolean(4),rs.getString(5)));	
+               return (person);
             }
 
         }

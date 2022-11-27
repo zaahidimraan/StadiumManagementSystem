@@ -132,5 +132,22 @@ public class BookTicket {
     	m.getPersonRegsister().removePerson(cnic, seatingarea.getText());
     	this.BillTable(Event);
     }
+    
+    public void screenPayment(ActionEvent EVent) throws IOException {
+        String CNIC=fname.getText();
+        Integer cnic=Integer.valueOf(Integer.parseInt(CNIC));
+        String name=fname1.getText();
+        Integer foodid1=Integer.valueOf(Integer.parseInt(foodid.getText()));
+        Integer seatno1=Integer.valueOf(Integer.parseInt(seatno.getText()));
+        Main m=new Main();
+        m.getPersonRegsister().setIndex(cnic, name,seatno1,seatingarea.getText(),foodid1);
+        System.out.println(m.getPersonRegsister().getIndex());
+        m.changeScene("Payment.fxml");
+    }
+    public void BackHome(ActionEvent Event) throws IOException {
+    	Main m=new Main();
+    	m.changeScene("Home.fxml");
+    }
+
 
 }

@@ -27,8 +27,8 @@
                <children>
                   <AnchorPane layoutX="1.0" layoutY="412.0" prefHeight="100.0" prefWidth="916.0">
                      <children>
-                        <Button fx:id="register21" layoutX="821.0" layoutY="32.0" mnemonicParsing="false" text="Back" textAlignment="CENTER" />
-                        <Button fx:id="register" layoutX="513.0" layoutY="31.0" mnemonicParsing="false" text="Payment" textAlignment="CENTER" />
+                        <Button fx:id="register21" layoutX="821.0" layoutY="32.0" mnemonicParsing="false" onAction="#BackHome" text="Back" textAlignment="CENTER" />
+                        <Button fx:id="register" layoutX="513.0" layoutY="31.0" mnemonicParsing="false" onAction="#screenPayment" text="Payment" textAlignment="CENTER" />
                         <TextField fx:id="seatno" layoutX="71.0" layoutY="19.0" promptText="SeatNumber" />
                      </children>
                   </AnchorPane>

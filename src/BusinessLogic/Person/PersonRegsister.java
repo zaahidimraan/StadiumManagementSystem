@@ -63,10 +63,12 @@ public class PersonRegsister {
         return index;
     }
 
-    public void setIndex(Integer CNIC) {
+    public void setIndex(Integer CNIC, String name,Integer seatNumber,String SeatType,Integer foofid) {
         for(int i=0;i<personArrayList.size();i++)
-         if(CNIC==personArrayList.get(i).getCNIC())
+         if((CNIC==personArrayList.get(i).getCNIC())&&(seatNumber==personArrayList.get(i).getSeat().getSeatNumber())&&(SeatType.equals(personArrayList.get(i).getSeat().getSeatType()))&&(
+        		 foofid==personArrayList.get(i).getSeat().getOrderFood().getFoodID())) {
              index=i;
+         }
     }
 
     public ArrayList<Person> getPersonArrayList(Integer CNIC) throws SQLException {
@@ -76,7 +78,7 @@ public class PersonRegsister {
     }
 
 
-    public Payment getPayment() throws SQLException {
+    public Person getPayment() throws SQLException {
         PersonDB db=new PersonDB();
         return db.getPayment(personArrayList.get(index));
     }

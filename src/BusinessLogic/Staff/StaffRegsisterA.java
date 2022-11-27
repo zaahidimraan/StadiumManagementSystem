@@ -67,7 +67,7 @@ public class StaffRegsisterA {
 
     public ArrayList<Salary> getSalaryArray(Integer CNIC) throws SQLException {
         for(int i=0;i<staffArrayList.size();i++)
-        	if(CNIC.intValue()==staffArrayList.get(i).getCNIC().intValue())
+        	if(CNIC==staffArrayList.get(i).getCNIC())
     	          return staffArrayList.get(i).getSalaries(CNIC);
 		return null;
     }

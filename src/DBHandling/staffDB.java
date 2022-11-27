@@ -115,7 +115,7 @@ public class staffDB {
     }
 
     public void removeSalary(Integer staffID,String month) throws SQLException {
-        String query = "delete from Staff where S_CNIC = ? and SL_month=?";
+        String query = "delete from Salary where S_CNIC = ? and SL_date = ?";
         PreparedStatement preparedStmt = con.prepareStatement(query);
         preparedStmt.setInt(1, staffID);
         preparedStmt.setString(2, month);
@@ -125,7 +125,7 @@ public class staffDB {
     }
 
     public void updateSalary(Salary staff) throws SQLException {
-        String query = "delete from Staff where S_CNIC = ? and SL_month=?";
+        String query = "delete from Salary where S_CNIC = ? and SL_month=?";
         PreparedStatement preparedStmt = con.prepareStatement(query);
         preparedStmt.setInt(1, staff.getCNIC());
         preparedStmt.setString(2, staff.getMonth());
@@ -138,7 +138,7 @@ public class staffDB {
     	else
     		temp=0;
 
-        String query1="insert into salary VALUES("+staff.getCNIC()+",'"+temp+"','"+staff.getPayement()+"','"+staff.getMonth()+"','"
+        String query1="insert into salary VALUES("+staff.getCNIC()+","+temp+","+staff.getPayement()+",'"+staff.getMonth()+"','"
                 +staff.getDate()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query1);

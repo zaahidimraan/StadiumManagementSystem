@@ -5,7 +5,9 @@ import java.sql.*;
 import BusinessLogic.*;
 import BusinessLogic.Bill.BillDetail;
 import BusinessLogic.Person.OrderFood;
+import BusinessLogic.Person.Payment;
 import BusinessLogic.Person.Person;
+import BusinessLogic.Person.seatDetail;
 
 public class PersonDB {
     private String usrname = "root";
@@ -84,9 +86,21 @@ public class PersonDB {
                 ",'"+bill.getSeat().getM_ID()+"','"+bill.getSeat().getOrderFood().getFoodID()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query);
+
+        String query1="insert into PersonPaymentDetail VALUES("+bill.getCNIC()+",'"+bill.getSeat().getM_ID()+"','"+bill.getSeat().getPayment().getPayment()+"',"+1+",'Nothing')";
+        Statement stm1=con.createStatement();
+        stm.executeUpdate(query1);
     }
 
     public void removePerson(Integer CNIC,String seatingareaa,String MID) throws SQLException {
+
+        String query1 = "delete from Person where V_CNIC = ? and M_ID =?";
+        PreparedStatement preparedStmt1 = con.prepareStatement(query1);
+        preparedStmt1.setInt(1, CNIC);
+        preparedStmt1.setString(2, MID);
+        // execute the preparedstatement
+        preparedStmt1.execute();
+
         String query = "delete from Person where V_CNIC = ?  and SA_type= ? and M_ID =?";
         PreparedStatement preparedStmt = con.prepareStatement(query);
         preparedStmt.setInt(1, CNIC);
@@ -96,6 +110,27 @@ public class PersonDB {
         preparedStmt.execute();
     }
 
+    public Payment getPayment(Person person) throws SQLException {
+        Statement stm;
+        String query="SELECT * FROM PersonPaymentDetail";
+        stm=con.createStatement();
+        ResultSet rs = stm.executeQuery(query);
+        String M_ID=person.getSeat().getM_ID();
+        Integer CNIC=person.getCNIC();
+        while(rs.next()) {
+            if((M_ID.equals(rs.getString(2)))&&(CNIC==rs.getInt(1))) {
+               return (new Payment(rs.getDouble(3),rs.getBoolean(4),rs.getString(5)));
+            }
 
+        }
+
+        return null;
+    }
+
+    public void updatePayment(Person bill) throws SQLException {
+        this.removePerson(bill.getCNIC(),bill.getSeat().getSeatType(),bill.getSeat().getM_ID());
+        this.addPerson(bill);
+
+    }
 
 }

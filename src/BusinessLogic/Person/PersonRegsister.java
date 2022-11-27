@@ -46,9 +46,6 @@ public class PersonRegsister {
         personArrayList.get(index).addPayment(payment,paymentStatus,paymentMethod);
     }
 
-    public Payment getPayment(){
-        return personArrayList.get(index).getPayment();
-    }
 
     public OrderFood getOrderFood(){
         return personArrayList.get(index).getOrderFood();
@@ -66,9 +63,9 @@ public class PersonRegsister {
         return index;
     }
 
-    public void setIndex() {
+    public void setIndex(Integer CNIC) {
         for(int i=0;i<personArrayList.size();i++)
-         if(CNIC.equals(personArrayList.get(i).getCNIC()))
+         if(CNIC==personArrayList.get(i).getCNIC())
              index=i;
     }
 
@@ -79,6 +76,18 @@ public class PersonRegsister {
     }
 
 
+    public Payment getPayment() throws SQLException {
+        PersonDB db=new PersonDB();
+        return db.getPayment(personArrayList.get(index));
+    }
+
+    public void updatePayment(Boolean status,String paymentM) throws SQLException {
+        Person p=personArrayList.get(index);
+        p.getSeat().getPayment().setPaymentMethod(paymentM);
+        p.getSeat().getPayment().setPaymentStatus(status);
+        PersonDB db=new PersonDB();
+        db.updatePayment(p);
+    }
 
     public void setPersonArrayList(ArrayList<Person> personArrayList) {
         this.personArrayList = personArrayList;

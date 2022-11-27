@@ -13,6 +13,7 @@ public class seatDetail {
         this.seatType = seatType;
         M_ID = m_ID;
         orderFood=new OrderFood(F_ID,Fprice);
+        payment=new Payment((price+Fprice),false,"Nothing");
     }
 
 

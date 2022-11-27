@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
@@ -12,22 +14,27 @@
    <center>
       <AnchorPane prefHeight="350.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="MatchTable" prefHeight="350.0" prefWidth="900.0">
+            <TableView fx:id="MatchTable" prefHeight="350.0" prefWidth="912.0">
               <columns>
                 <TableColumn fx:id="colRefNo" prefWidth="144.0" text="Match ID" />
                   <TableColumn fx:id="colDueDate" prefWidth="177.0" text="Date" />
                   <TableColumn fx:id="colMatchType" prefWidth="145.0" text="Type" />
                   <TableColumn fx:id="colPersonID" prefWidth="188.0" text="StartTime" />
                   <TableColumn fx:id="colteam1" prefWidth="122.0" text="Team1" />
-                  <TableColumn fx:id="colteam2" prefWidth="121.0" text="Team2" />
+                  <TableColumn fx:id="colteam2" prefWidth="139.99997558593748" text="Team2" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
    </center>
    <bottom>
-      <AnchorPane prefHeight="250.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="252.0" prefWidth="903.0" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="255.0" fitWidth="918.0" layoutX="-7.0" layoutY="-2.0">
+               <image>
+                  <Image url="@Pic/new.png" />
+               </image>
+            </ImageView>
             <TextField fx:id="MatchRefNo" layoutX="46.0" layoutY="21.0" promptText="Match ID" />
             <TextField fx:id="dueDate" layoutX="46.0" layoutY="55.0" promptText="Date" />
             <TextField fx:id="MatchType" layoutX="46.0" layoutY="88.0" promptText="Type" />

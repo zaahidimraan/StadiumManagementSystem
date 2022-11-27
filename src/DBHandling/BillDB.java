@@ -51,8 +51,8 @@ public class BillDB {
     	else
     		temp=0;
     	
-        String query="insert into Bill VALUES("+bill.getBillRefNo()+",'"+temp+"','"+bill.getBillType()+"','"+bill.getBillDate()+"','"
-        +bill.getPersonID()+"','"+bill.getPayment()+"')";
+        String query="insert into Bill VALUES("+bill.getBillRefNo()+","+temp+",'"+bill.getBillType()+"','"+bill.getBillDate()+"',"
+        +bill.getPersonID()+","+bill.getPayment()+")";
 
 
         Statement stm=con.createStatement();
@@ -82,8 +82,8 @@ public class BillDB {
     	else
     		temp=0;
     	
-        String query1="insert into Bill VALUES("+bill.getBillRefNo()+",'"+temp+"','"+bill.getBillType()+"','"+bill.getBillDate()+"','"
-        +bill.getPersonID()+"','"+bill.getPayment()+"')";
+        String query1="insert into Bill VALUES("+bill.getBillRefNo()+","+temp+",'"+bill.getBillType()+"','"+bill.getBillDate()+"',"
+        +bill.getPersonID()+","+bill.getPayment()+")";
 
 
         Statement stm=con.createStatement();

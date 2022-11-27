@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
@@ -27,8 +29,13 @@
       </AnchorPane>
    </center>
    <bottom>
-      <AnchorPane prefHeight="250.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="254.0" prefWidth="882.0" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="256.0" fitWidth="900.0" layoutX="-2.0" layoutY="-2.0">
+               <image>
+                  <Image url="@Pic/new.png" />
+               </image>
+            </ImageView>
             <TextField fx:id="billRefNo" layoutX="46.0" layoutY="8.0" promptText="Bill Reference Number" />
             <TextField fx:id="dueDate" layoutX="46.0" layoutY="43.0" promptText="Due Date" />
             <TextField fx:id="billType" layoutX="46.0" layoutY="80.0" promptText="Type" />

@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
@@ -28,6 +30,12 @@
    <bottom>
       <AnchorPane fx:id="info" onDragDetected="#addBill" prefHeight="250.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="257.0" fitWidth="910.0" layoutX="-9.0" layoutY="-2.0">
+               <image>
+                  <Image url="@Pic/new.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="258.0" layoutY="211.0" />
             <TextField fx:id="staffCNIC" layoutX="46.0" layoutY="14.0" text="CNIC" />
             <TextField fx:id="staffName" layoutX="46.0" layoutY="55.0" text="Name" />
             <TextField fx:id="staffType" layoutX="46.0" layoutY="100.0" text="Type" />
@@ -39,7 +47,6 @@
             <Button fx:id="staffSalaryM" layoutX="713.0" layoutY="18.0" mnemonicParsing="false" onAction="#showTable" prefHeight="25.0" prefWidth="137.0" text="Show Table" />
             <Button fx:id="staffBack1" layoutX="583.0" layoutY="18.0" mnemonicParsing="false" onAction="#getSelectedRow" prefHeight="25.0" prefWidth="55.0" text="Edit" />
             <Button layoutX="424.0" layoutY="186.0" mnemonicParsing="false" onAction="#BackHome" text="Back" />
-            <Label layoutX="258.0" layoutY="211.0" />
          </children>
       </AnchorPane>
    </bottom>

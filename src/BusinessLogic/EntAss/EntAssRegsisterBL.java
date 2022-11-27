@@ -108,7 +108,7 @@ public class EntAssRegsisterBL {
                     commentators.remove(i);
                     EntAssDB db=new EntAssDB();
                     db.removePerson(CNIC);
-                    i=empires.size();
+                    i=commentators.size();
                 }
             }
         }
@@ -139,7 +139,7 @@ public class EntAssRegsisterBL {
                     commentators.get(i).setPnumber(pnumber);
                     EntAssDB db=new EntAssDB();
                     db.updateCommentator(new Commentator(CNIC,name,pnumber,type,fee));
-                    i=empires.size();
+                    i=commentators.size();
                 }
             }
         }

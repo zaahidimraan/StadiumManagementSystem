@@ -5,47 +5,64 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Home">
    <bottom>
-      <AnchorPane prefHeight="74.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="97.0" prefWidth="915.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="bookticket" layoutX="377.0" layoutY="18.0" mnemonicParsing="false" onAction="#getSelectedRow" prefHeight="38.0" prefWidth="146.0" text="Book Ticket" />
+            <ImageView fitHeight="602.0" fitWidth="916.0" layoutX="-1.0" layoutY="-498.0">
+               <image>
+                  <Image url="@Pic/new.png" />
+               </image>
+            </ImageView>
             <Button fx:id="show" layoutX="733.0" layoutY="18.0" mnemonicParsing="false" onAction="#MatchTable" prefHeight="38.0" prefWidth="146.0" text="Show Table" />
+            <Button fx:id="bookticket" layoutX="377.0" layoutY="18.0" mnemonicParsing="false" onAction="#getSelectedRow" prefHeight="38.0" prefWidth="146.0" text="Book Ticket" />
+            <ImageView fitHeight="103.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pic/isometric-cricket-stadium-grass-field-sport-pitch-floodlight-public-cricketer-tournament-championship-cartoon-ball-160475792.jpg" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </bottom>
    <center>
       <AnchorPane prefHeight="450.0" prefWidth="902.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="table" layoutY="199.0" prefHeight="297.0" prefWidth="900.0">
+            <TableView fx:id="table" layoutY="199.0" prefHeight="298.0" prefWidth="915.0">
                <columns>
-                  <TableColumn minWidth="2.400024437904449" prefWidth="49.60002899169922" />
-                  <TableColumn fx:id="matchid" prefWidth="118.39999389648438" text="Match ID" />
+                  <TableColumn minWidth="0.0" prefWidth="0.0" />
+                  <TableColumn fx:id="matchid" prefWidth="168.79999083280563" text="Match ID" />
                   <TableColumn fx:id="matchtype" prefWidth="159.20001220703125" text="Match Type" />
                   <TableColumn fx:id="matchdate" prefWidth="134.4000244140625" text="Match Date" />
                   <TableColumn fx:id="matchtime" prefWidth="135.0" text="Match Time" />
                   <TableColumn fx:id="colteam1" prefWidth="148.00006103515625" text="Team 1" />
-                  <TableColumn fx:id="colteam2" minWidth="0.0" prefWidth="92.800048828125" text="Team 2" />
+                  <TableColumn fx:id="colteam2" minWidth="0.0" prefWidth="166.39995117187505" text="Team 2" />
                </columns>
             </TableView>
             <AnchorPane prefHeight="104.0" prefWidth="900.0">
                <children>
-                  <Label alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="26.0" prefWidth="902.0" text="HORIZON STADIUM">
+                  <Label alignment="CENTER" layoutX="183.0" layoutY="14.0" prefHeight="86.0" prefWidth="718.0" text="HORIZON STADIUM" textFill="#ff0202">
                      <font>
                         <Font name="System Bold" size="58.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="-1.0" layoutY="-4.0">
+                     <image>
+                        <Image url="@Pic/logo.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <Label layoutX="764.0" layoutY="116.0" />
-            <TextField fx:id="password" layoutX="586.0" layoutY="159.0" promptText="Password" />
+            <TextField fx:id="password" layoutX="578.0" layoutY="140.0" promptText="Password" />
             <Label layoutX="597.0" layoutY="116.0" />
-            <TextField fx:id="login" layoutX="414.0" layoutY="159.0" promptText="Login" />
-            <Button fx:id="loginButton" layoutX="778.0" layoutY="159.0" mnemonicParsing="false" onAction="#LoginUser" text="Login" />
+            <TextField fx:id="login" layoutX="375.0" layoutY="141.0" promptText="Login" />
+            <Button fx:id="loginButton" layoutX="791.0" layoutY="140.0" mnemonicParsing="false" onAction="#LoginUser" text="Login" />
          </children>
       </AnchorPane>
    </center>

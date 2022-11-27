@@ -49,7 +49,7 @@ public class staffDB {
     public void addstaff(Staff staff) throws SQLException {
 
 
-        String query="insert into Staff VALUES("+staff.getCNIC()+",'"+staff.getName()+"','"+staff.getType()+"','"+staff.getSalary()+"','"
+        String query="insert into Staff VALUES("+staff.getCNIC()+",'"+staff.getName()+"','"+staff.getType()+"',"+staff.getSalary()+",'"
                 +staff.getDuty()+"','"+staff.getPassword()+"')";
 
 
@@ -74,7 +74,7 @@ public class staffDB {
         // execute the preparedstatement
         preparedStmt.execute();
 
-        String query1="insert into Staff VALUES("+staff.getCNIC()+",'"+staff.getName()+"','"+staff.getType()+"','"+staff.getSalary()+"','"
+        String query1="insert into Staff VALUES("+staff.getCNIC()+",'"+staff.getName()+"','"+staff.getType()+"',"+staff.getSalary()+",'"
                 +staff.getDuty()+"','"+staff.getPassword()+"')";
 
 

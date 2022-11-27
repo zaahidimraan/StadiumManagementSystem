@@ -46,7 +46,7 @@ public class MatchDB {
 
     public void addMatch(Match match) throws SQLException {
 
-        String query="insert into MatchDetail VALUES("+match.getMatchID()+",'"+match.getMatchType()+"','"+match.getMatchDate()+"','"+match.getStartIme()+"','"+match.getTeam1()+"','"+match.getTeam2()+"')";
+        String query="insert into MatchDetail VALUES('"+match.getMatchID()+"','"+match.getMatchType()+"','"+match.getMatchDate()+"','"+match.getStartIme()+"','"+match.getTeam1()+"','"+match.getTeam2()+"');";
         Statement stm=con.createStatement();
         stm.executeUpdate(query);
     }
@@ -68,7 +68,7 @@ public class MatchDB {
         // execute the preparedstatement
         preparedStmt.execute();
 
-        String query1="insert into MatchDetail VALUES("+match.getMatchID()+",'"+match.getMatchType()+"','"+match.getMatchDate()+"','"+match.getStartIme()+"','"+match.getTeam1()+"','"+match.getTeam2()+"')";
+        String query1="insert into MatchDetail VALUES('"+match.getMatchID()+"','"+match.getMatchType()+"','"+match.getMatchDate()+"','"+match.getStartIme()+"','"+match.getTeam1()+"','"+match.getTeam2()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query1);
     }

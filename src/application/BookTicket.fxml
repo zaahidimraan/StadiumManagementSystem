@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.Color?>
@@ -16,11 +18,16 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BookTicket">
    <center>
-      <AnchorPane prefHeight="570.0" prefWidth="901.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="598.0" prefWidth="891.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="-1.0" layoutY="82.0" prefHeight="267.0" prefWidth="900.0">
+            <ImageView fitHeight="598.0" fitWidth="916.0">
+               <image>
+                  <Image url="@Pic/new.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="-1.0" layoutY="82.0" prefHeight="486.0" prefWidth="889.0">
                <children>
-                  <AnchorPane layoutX="-1.0" layoutY="386.0" prefHeight="100.0" prefWidth="928.0">
+                  <AnchorPane layoutX="1.0" layoutY="412.0" prefHeight="100.0" prefWidth="916.0">
                      <children>
                         <Button fx:id="register21" layoutX="821.0" layoutY="32.0" mnemonicParsing="false" text="Back" textAlignment="CENTER" />
                         <Button fx:id="register211" layoutX="663.0" layoutY="32.0" mnemonicParsing="false" text="Main Menu" textAlignment="CENTER" />
@@ -41,7 +48,7 @@
                       <MenuItem mnemonicParsing="false" text="C" />
                     </items>
                   </MenuButton>
-                  <TableView fx:id="billTable" layoutY="-2.0" prefHeight="200.0" prefWidth="928.0">
+                  <TableView fx:id="billTable" layoutY="-2.0" prefHeight="201.0" prefWidth="917.0">
                     <columns>
                       <TableColumn fx:id="tableName" prefWidth="203.19997560977936" text="Name " />
                       <TableColumn fx:id="tableCNIC" prefWidth="231.19998168945312" text="CNIC" />
@@ -58,7 +65,7 @@
                   </MenuButton>
                </children>
             </AnchorPane>
-            <Label alignment="CENTER" layoutY="-1.0" prefHeight="90.0" prefWidth="928.0" text="BOOK TICKET" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutY="-1.0" prefHeight="90.0" prefWidth="916.0" text="BOOK TICKET" textAlignment="CENTER">
                <font>
                   <Font size="40.0" />
                </font>

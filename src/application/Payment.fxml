@@ -6,6 +6,8 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.Color?>
@@ -17,22 +19,27 @@
    <center>
       <AnchorPane prefHeight="570.0" prefWidth="901.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="-1.0" layoutY="82.0" prefHeight="267.0" prefWidth="900.0">
+            <AnchorPane layoutX="-1.0" layoutY="80.0" prefHeight="520.0" prefWidth="894.0">
                <children>
-                  <AnchorPane layoutX="-1.0" layoutY="386.0" prefHeight="100.0" prefWidth="928.0">
+                  <ImageView fitHeight="608.0" fitWidth="916.0" layoutY="-84.0">
+                     <image>
+                        <Image url="@Pic/new.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane layoutY="424.0" prefHeight="100.0" prefWidth="916.0">
                      <children>
                         <Button fx:id="back" layoutX="821.0" layoutY="40.0" mnemonicParsing="false" text="Back" textAlignment="CENTER" />
                         <Button fx:id="main" layoutX="621.0" layoutY="40.0" mnemonicParsing="false" text="Main Menu" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <TableView id="table" fx:id="table" prefHeight="222.0" prefWidth="928.0">
+                  <TableView id="table" fx:id="table" prefHeight="222.0" prefWidth="915.0">
                     <columns>
                       <TableColumn fx:id="name" prefWidth="169.60000002384186" text="Name" />
                       <TableColumn fx:id="cnic" prefWidth="194.4000244140625" text="CNIC" />
                         <TableColumn fx:id="matchid" prefWidth="157.60000610351562" text="Match ID" />
                         <TableColumn fx:id="payment" prefWidth="124.79998779296875" text="Payment " />
                         <TableColumn fx:id="paymethod" prefWidth="188.0" text="Payment Method" />
-                        <TableColumn fx:id="status" prefWidth="90.4000244140625" text="Status" />
+                        <TableColumn fx:id="status" prefWidth="77.60002441406255" text="Status" />
                     </columns>
                   </TableView>
                   <Button fx:id="show" layoutX="759.0" layoutY="240.0" mnemonicParsing="false" text="Show Table" textAlignment="CENTER" />
@@ -42,12 +49,18 @@
                       <MenuItem mnemonicParsing="false" text="Action 2" />
                     </items>
                   </MenuButton>
-                  <Label disable="true" layoutX="43.0" layoutY="304.0" text="Total Payment" />
-                  <Label fx:id="showpayment" layoutX="162.0" layoutY="304.0" text="here goes payment" />
-                  <Button fx:id="confirm" layoutX="111.0" layoutY="360.0" mnemonicParsing="false" text="Confirm payment" textAlignment="CENTER" />
+                  <Label disable="true" layoutX="7.0" layoutY="301.0" text="Total Payment" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label fx:id="showpayment" layoutX="168.0" layoutY="304.0" text="here goes payment" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Button fx:id="confirm" layoutX="117.0" layoutY="360.0" mnemonicParsing="false" text="Confirm payment" textAlignment="CENTER" />
                </children>
             </AnchorPane>
-            <Label alignment="CENTER" layoutY="-1.0" prefHeight="90.0" prefWidth="928.0" text="BOOKING PAYMENT" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutY="-1.0" prefHeight="90.0" prefWidth="905.0" text="BOOKING PAYMENT" textAlignment="CENTER">
                <font>
                   <Font size="40.0" />
                </font>

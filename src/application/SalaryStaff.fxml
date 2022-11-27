@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
@@ -12,14 +14,14 @@
    <center>
       <AnchorPane prefHeight="350.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="Salarytable" prefHeight="350.0" prefWidth="900.0">
+            <TableView fx:id="Salarytable" prefHeight="350.0" prefWidth="917.0">
               <columns>
-                <TableColumn prefWidth="75.0" />
-                <TableColumn fx:id="colStaffCNIC" prefWidth="187.0" text="CNIC" />
-                  <TableColumn fx:id="colMonth" prefWidth="149.0" text="Month" />
-                  <TableColumn fx:id="colStatus" prefWidth="47.0" text="Status" />
-                  <TableColumn fx:id="colDate" prefWidth="135.0" text="Date" />
-                  <TableColumn fx:id="colStaffSalary" minWidth="0.0" prefWidth="178.0" text="Salary" />
+                <TableColumn minWidth="0.0" prefWidth="0.0" />
+                <TableColumn fx:id="colStaffCNIC" prefWidth="234.4000244140625" text="CNIC" />
+                  <TableColumn fx:id="colMonth" prefWidth="180.0" text="Month" />
+                  <TableColumn fx:id="colStatus" prefWidth="171.2000732421875" text="Status" />
+                  <TableColumn fx:id="colDate" prefWidth="166.40008544921875" text="Date" />
+                  <TableColumn fx:id="colStaffSalary" minWidth="0.0" prefWidth="168.800048828125" text="Salary" />
               </columns>
             </TableView>
          </children>
@@ -28,6 +30,11 @@
    <bottom>
       <AnchorPane prefHeight="250.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="252.0" fitWidth="917.0" layoutX="-1.0" layoutY="-2.0">
+               <image>
+                  <Image url="@Pic/new.png" />
+               </image>
+            </ImageView>
             <TextField fx:id="staffCNIC" layoutX="46.0" layoutY="14.0" promptText="CNIC" />
             <TextField fx:id="month" layoutX="46.0" layoutY="55.0" promptText="Month" />
             <TextField fx:id="date" layoutX="46.0" layoutY="142.0" promptText="Date" />

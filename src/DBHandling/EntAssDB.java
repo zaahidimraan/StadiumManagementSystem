@@ -105,7 +105,7 @@ public class EntAssDB {
 
         // execute the preparedstatement
         preparedStmt.execute();
-        String query1="insert into EntAss VALUES("+empire.getCNIC()+",'"+empire.getName()+"','"+empire.getPnumber()+"','"+empire.getFee()+"')";
+        String query1="insert into EntAss VALUES("+empire.getCNIC()+",'"+empire.getName()+"','"+empire.getPnumber()+"','"+empire.getType()+"','"+empire.getFee()+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query1);
     }

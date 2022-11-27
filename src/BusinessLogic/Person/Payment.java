@@ -7,7 +7,7 @@ public class Payment {
 
     public Payment(Double payment, Boolean paymentStatus, String paymentMethod) {
         this.payment = payment;
-        this.paymentStatus = paymentStatus;
+        this.paymentStatus = false;
         this.paymentMethod = paymentMethod;
     }
 

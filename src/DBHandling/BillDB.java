@@ -76,7 +76,7 @@ public class BillDB {
         // execute the preparedstatement
         preparedStmt.execute();
 
-        int temp=0;
+    	int temp=0;
     	if(bill.getBillStatus())
     		temp=1;
     	else

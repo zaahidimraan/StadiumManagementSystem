@@ -158,7 +158,8 @@ public class Bill {
     		Double payment=Double.parseDouble(billPayment.getText());
     		Integer person=Integer.parseInt(personID.getText());
     		Boolean status=billStatus.isSelected();
-    		Main.getBillHandler().updateBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
+    		Main.getBillHandler().removeBill(roll);
+    		Main.getBillHandler().addBill(roll, dueDate.getText(), billType.getText(), person, payment, status);
     		this.BillTable(Event);
     	}    	
     }

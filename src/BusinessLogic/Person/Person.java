@@ -3,15 +3,25 @@ package BusinessLogic.Person;
 import java.util.ArrayList;
 
 public class Person {
-  Integer CNIC;
-  String name;
+  private Integer CNIC;
+  private String name;
   private seatDetail seat;
+  
+  
+  private Integer seatNumber;
+  private String seatType;
+  private Double seatPrice;
+  private Integer FID;
 
   public seatDetail getSeat() {
     return seat;
   }
 
   public void setSeat(Integer seatNumber, String seatType, Double price, String m_ID, Integer F_ID,Double Fprice) {
+	  this.seatNumber=seatNumber;
+	  this.seatType=seatType;
+	  this.seatPrice=price+Fprice;
+	  this.FID=F_ID;
     this.seat = new seatDetail(seatNumber, seatType, price, m_ID,F_ID,Fprice);
   }
 
@@ -87,4 +97,22 @@ public class Person {
   public OrderFood getOrderFood(){
     return seat.getOrderFood();
   }
+
+  public Integer getSeatNumber() {
+	return seatNumber;
+  }
+
+  public String getSeatType() {
+	return seatType;
+  }
+ 
+  public Double getSeatPrice() {
+	return seatPrice;
+  }
+ 
+  public Integer getFID() {
+	return FID;
+  }
+  
+  
 }

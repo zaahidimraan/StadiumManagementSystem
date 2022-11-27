@@ -12,7 +12,6 @@ public class seatDetail {
         this.seatNumber = seatNumber;
         this.seatType = seatType;
         M_ID = m_ID;
-        this.orderFood = orderFood;
         orderFood=new OrderFood(F_ID,Fprice);
     }
 

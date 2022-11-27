@@ -21,23 +21,20 @@ public class PersonRegsister {
 
 	ArrayList<Person> personArrayList=new ArrayList<Person>();
 
-    public void addPerson(Integer CNIC, String name) throws SQLException {
+    public void addPerson(Integer CNIC, String name,Integer seatNumber,String SeatType,Integer foofid) throws SQLException {
 
         personArrayList.add(new Person(CNIC,name));
         PersonDB db=new PersonDB();
-        db.addPerson(new Person(CNIC,name));
+        db.addPerson(new Person(CNIC,name,seatNumber,SeatType,M_ID,foofid));
     }
 
-    public void updatePerson(Integer CNIC, String name) throws SQLException {
 
-        PersonDB db=new PersonDB();
-        db.updatePerson(new Person(CNIC,name));
-    }
 
     public void removePerson(Integer CNIC,String name) throws SQLException {
 
         PersonDB db=new PersonDB();
-        db.removePerson(new Person(CNIC,name));
+        db.removePerson(CNIC,name,M_ID);
+        
     }
 
     public void addSeatDetail(Integer seatNumber, String seatType, Double price, String m_ID, Integer F_ID,Double Fprice){
@@ -75,9 +72,9 @@ public class PersonRegsister {
              index=i;
     }
 
-    public ArrayList<Person> getPersonArrayList() throws SQLException {
+    public ArrayList<Person> getPersonArrayList(Integer CNIC) throws SQLException {
         PersonDB db=new PersonDB();
-        personArrayList=db.getPersonArray();
+        personArrayList=db.getPersonArray(M_ID,CNIC);
         return personArrayList;
     }
 

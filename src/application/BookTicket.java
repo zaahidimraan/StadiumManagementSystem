@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -20,16 +21,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class BookTicket {
 
-    @FXML
-    private MenuButton seatingArea;
 
-    @FXML
-    private MenuButton orderFood;
     @FXML
     private TextField fname;
 
     @FXML
     private TextField fname1;
+    @FXML
+    private TextField foodid;
+    @FXML
+    private TextField seatno;
+
+    @FXML
+    private TextField seatingarea;
 
     @FXML
     private Button register;
@@ -68,22 +72,29 @@ public class BookTicket {
     private TableColumn<BusinessLogic.Person.Person, String> tableName;
 
     @FXML
-    private TableColumn<BusinessLogic.Person.seatDetail, Integer> tableSeatNumber;
+    private TableColumn<BusinessLogic.Person.Person, Integer> tableSeatNumber;
 
     @FXML
-    private TableColumn<BusinessLogic.Person.seatDetail, String> tableSeatingArea;
+    private TableColumn<BusinessLogic.Person.Person, String> tableSeatingArea;
+    @FXML
+    private TableColumn<BusinessLogic.Person.Person, Integer> colFood;
+    @FXML
+    private TableColumn<BusinessLogic.Person.Person, Double> colPrice;
     @FXML
     private TableView<BusinessLogic.Person.Person> billTable;
     
     public void BillTable(ActionEvent Event) throws SQLException {
     	Main m=new Main();
-    	ArrayList<Person> stu = m.getPersonRegsister().getPersonArrayList();
+    	ArrayList<BusinessLogic.Person.Person> stu = m.getPersonRegsister().getPersonArrayList(Integer.valueOf(Integer.parseInt(fname.getText())));
     	
 
-		final ObservableList<Person> data = FXCollections.observableArrayList(stu);
-        tableCNIC.setCellValueFactory(new PropertyValueFactory<Person, Integer>("CNIC"));
-        tableName.setCellValueFactory(new PropertyValueFactory<Person, String>("name"));
-		
+		final ObservableList<BusinessLogic.Person.Person> data = FXCollections.observableArrayList(stu);
+        tableCNIC.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Person.Person, Integer>("CNIC"));
+        tableName.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Person.Person, String>("name"));
+        tableSeatNumber.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Person.Person, Integer>("seatNumber"));
+        tableSeatingArea.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Person.Person, String>("seatType"));
+        colFood.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Person.Person, Integer>("FID"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<BusinessLogic.Person.Person, Double>("seatPrice"));
         billTable.setItems(data);
 		
     }
@@ -93,6 +104,9 @@ public class BookTicket {
     	 TableViewSelectionModel<Person> b=billTable.getSelectionModel();
     	 fname.setText(b.getSelectedItem().getCNIC().toString());
     	 fname1.setText(b.getSelectedItem().getName());
+    	 seatingarea.setText(b.getSelectedItem().getSeatType());
+    	 foodid.setText(b.getSelectedItem().getFID().toString());
+    	 seatno.setText(b.getSelectedItem().getSeatNumber().toString());
     	 
     	}
     }
@@ -102,23 +116,21 @@ public class BookTicket {
         String CNIC=fname.getText();
         Integer cnic=Integer.valueOf(Integer.parseInt(CNIC));
         String name=fname1.getText();
-    	m.getPersonRegsister().addPerson(cnic, name);
+        Integer foodid1=Integer.valueOf(Integer.parseInt(foodid.getText()));
+        Integer seatno1=Integer.valueOf(Integer.parseInt(seatno.getText()));
+    	m.getPersonRegsister().addPerson(cnic, name,seatno1,seatingarea.getText(),foodid1);
+    	this.BillTable(Event);
     }
     
-    public void updateBill(ActionEvent Event) throws IOException, SQLException {
-    	Main m=new Main();
-        String CNIC=fname.getText();
-        Integer cnic=Integer.valueOf(Integer.parseInt(CNIC));
-        String name=fname1.getText();
-    	m.getPersonRegsister().removePerson(cnic, name);
-    }
+    
     
     public void removeBill(ActionEvent Event) throws IOException, SQLException {
     	Main m=new Main();
         String CNIC=fname.getText();
         Integer cnic=Integer.valueOf(Integer.parseInt(CNIC));
         String name=fname1.getText();
-    	m.getPersonRegsister().updatePerson(cnic, name);
+    	m.getPersonRegsister().removePerson(cnic, seatingarea.getText());
+    	this.BillTable(Event);
     }
 
 }

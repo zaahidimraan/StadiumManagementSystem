@@ -24,11 +24,11 @@ public class PersonDB {
         }
 
     }
-    public ArrayList<Person> getPersons() throws SQLException {
-        return getPersonArray();
+    public ArrayList<Person> getPersons(String MID,Integer CNIC) throws SQLException {
+        return getPersonArray(MID,CNIC);
     }
 
-    public ArrayList<Person> getPersonArray() throws SQLException {
+    public ArrayList<Person> getPersonArray(String M_ID,Integer CNIC) throws SQLException {
 
 
         ArrayList<Person> arr = new ArrayList<Person>();
@@ -38,8 +38,10 @@ public class PersonDB {
         ResultSet rs = stm.executeQuery(query);
 
         while(rs.next()) {
-            Person temp = new Person(rs.getInt(1),rs.getString(2));
-            if(rs.getString(4).equals("A")) {
+        	if((M_ID.equals(rs.getString(5)))&&(CNIC==rs.getInt(1))) {
+            Person temp =null;
+            temp = new Person(rs.getInt(1),rs.getString(2));
+             if(rs.getString(4).equals("A")) {
                 if(rs.getInt(6)==1)
                  temp.setSeat(rs.getInt(3), rs.getString(4), 1500.0, rs.getString(5), rs.getInt(6),1000.0);
                 else if(rs.getInt(6)==2)
@@ -47,8 +49,8 @@ public class PersonDB {
                 else if (rs.getInt(6)==3) {
                     temp.setSeat(rs.getInt(3), rs.getString(4), 1500.0, rs.getString(5), rs.getInt(6),500.0);
                 }
-            }
-            else if(rs.getString(4).equals("B")){
+             }
+             else if(rs.getString(4).equals("B")){
                 if(rs.getInt(6)==1)
                     temp.setSeat(rs.getInt(3), rs.getString(4), 1000.0, rs.getString(5), rs.getInt(6),1000.0);
                 else if(rs.getInt(6)==2)
@@ -56,8 +58,8 @@ public class PersonDB {
                 else if (rs.getInt(6)==3) {
                     temp.setSeat(rs.getInt(3), rs.getString(4), 1000.0, rs.getString(5), rs.getInt(6),500.0);
                 }
-            }
-            else if(rs.getString(4).equals("C")){
+             }
+             else if(rs.getString(4).equals("C")){
                 if(rs.getInt(6)==1)
                     temp.setSeat(rs.getInt(3), rs.getString(4), 500.0, rs.getString(5), rs.getInt(6),1000.0);
                 else if(rs.getInt(6)==2)
@@ -65,11 +67,12 @@ public class PersonDB {
                 else if (rs.getInt(6)==3) {
                     temp.setSeat(rs.getInt(3), rs.getString(4), 500.0, rs.getString(5), rs.getInt(6),500.0);
                 }
-            }
+             }
 
+             arr.add(temp);
 
+         }
 
-            arr.add(temp);
         }
 
         return arr;
@@ -83,27 +86,16 @@ public class PersonDB {
         stm.executeUpdate(query);
     }
 
-    public void removePerson(Person PersonID) throws SQLException {
-        String query = "delete from Person where V_CNIC = ?";
+    public void removePerson(Integer CNIC,String seatingareaa,String MID) throws SQLException {
+        String query = "delete from Person where V_CNIC = ?  and SA_type= ? and M_ID =?";
         PreparedStatement preparedStmt = con.prepareStatement(query);
-        preparedStmt.setInt(1, PersonID.getCNIC());
-
+        preparedStmt.setInt(1, CNIC);
+        preparedStmt.setString(2, seatingareaa);
+        preparedStmt.setString(3, MID);
         // execute the preparedstatement
         preparedStmt.execute();
     }
 
-    public void updatePerson(Person bill) throws SQLException {
-        String query = "delete from Person where V_CNIC = ?";
-        PreparedStatement preparedStmt = con.prepareStatement(query);
-        preparedStmt.setInt(1, bill.getCNIC());
 
-        // execute the preparedstatement
-        preparedStmt.execute();
-
-        String query1="insert into Person VALUES("+bill.getCNIC()+",'"+bill.getName()+"','"+bill.getSeat().getSeatNumber()+"','"+bill.getSeat().getSeatType()+"'" +
-                ",'"+bill.getSeat().getM_ID()+"','"+bill.getSeat().getOrderFood().getFoodID()+"')";
-        Statement stm=con.createStatement();
-        stm.executeUpdate(query1);
-    }
 
 }

@@ -15,7 +15,7 @@
             <Button fx:id="main" layoutX="733.0" layoutY="38.0" mnemonicParsing="false" onAction="#BackPage" prefHeight="38.0" prefWidth="146.0" text="Main" />
             <ImageView fitHeight="601.0" fitWidth="918.0" layoutY="-454.0">
                <image>
-                  <Image url="@../../../3d-render-cricket-stadium-playground-with-golden-trophy-cup-copy-space_1302-28410.jpg" />
+                  <Image url="@Pic/EntAss.jpg" />
                </image>
             </ImageView>
          </children>

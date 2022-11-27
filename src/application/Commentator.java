@@ -111,6 +111,7 @@ public class Commentator {
 	    		Main.getEntAssRegsister().addEntAss(roll, staffName.getText(), phone, staffType.getText(), payment);
 	    		this.showTable(Event);
 	    	}
+	    	this.showTable(Event);
 	    	
 	    }
 	    
@@ -128,6 +129,7 @@ public class Commentator {
 	    		Main.getEntAssRegsister().removeEntAss(phone, staffType.getText());
 	    		this.showTable(Event);
 	    	}
+	    	this.showTable(Event);
 	    	
 	    }
 	    
@@ -145,11 +147,19 @@ public class Commentator {
 	    		Main.getEntAssRegsister().updateEntAss(roll, staffName.getText(), phone, staffType.getText(), payment);
 	    		this.showTable(Event);
 	    	} 	
+	    	this.showTable(Event);
 	    }
 	    
 	    public void BackHome(ActionEvent Event) throws IOException {
 	    	Main m=new Main();
 	    	m.changeScene("Home.fxml");
+	    }
+	    
+	    public void bookingScreen(ActionEvent Event) throws IOException {
+	    	Main m=new Main();
+	    	m.getEntAssRegsister().setEntAssID(Integer.parseInt(staffCNIC.getText()));
+	    	System.out.println(m.getEntAssRegsister().getEntAssID());
+	    	m.changeScene("BookingEntAssScreen.fxml");
 	    }
 
 }

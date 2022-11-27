@@ -75,7 +75,7 @@ public class BookingEntAssScreen {
     public void BillTable(ActionEvent Event) throws SQLException {
     	Main m=new Main();
     	
-    	ArrayList<BookingAss> stu = m.getEntAssRegsister().getBookingList(1);
+    	ArrayList<BookingAss> stu = m.getEntAssRegsister().getBookingList(m.getEntAssRegsister().getEntAssID());
     	
 
 		final ObservableList<BookingAss> data = FXCollections.observableArrayList(stu);
@@ -89,18 +89,12 @@ public class BookingEntAssScreen {
     }
     
     public void getSelectedRow(ActionEvent Event) {
-    /*	if(billTable.getSelectionModel() != null) {
+    	if(billTable.getSelectionModel() != null) {
     	 TableViewSelectionModel<BookingAss> b=billTable.getSelectionModel();
-    	 dueDate.setText(b.getSelectedItem().getBillDate());
-    	 personID.setText(b.getSelectedItem().getPersonID().toString());
-    	 billType.setText(b.getSelectedItem().getBillType());
-    	 if(b.getSelectedItem().getBillStatus())
-    		 billStatus.setSelected(true);
-    	 else
-    		 billStatus.setSelected(false);
-    	 billRefNo.setText(b.getSelectedItem().getBillRefNo().toString());
-    	 billPayment.setText(b.getSelectedItem().getPayment().toString());
-    	}*/
+    	 dueDate.setText(b.getSelectedItem().getDate());
+    	 billRefNo.setText(b.getSelectedItem().getM_ID());
+    	 billPayment.setText(b.getSelectedItem().getTime());
+    	}
     }
     
     public void addBill(ActionEvent Event) throws IOException, SQLException {
@@ -111,15 +105,26 @@ public class BookingEntAssScreen {
     		info.setText("Enter Data in all fields");
     	}
     	else {
-    		Integer roll=Integer.parseInt(CNIC.getText());
-    		Main.getEntAssRegsister().addBooking(roll,billRefNo.getText() ,dueDate.getText() , billPayment.getText());;
-    		//this.BillTable(Event);
+    		//Integer roll=Integer.parseInt(CNIC.getText());
+    		Main.getEntAssRegsister().addBooking(m.getEntAssRegsister().getEntAssID(),billRefNo.getText() ,dueDate.getText() , billPayment.getText());;
+    		this.BillTable(Event);
     	}
-    	
+    	this.BillTable(Event);
     }
     @FXML
-    void removeBill(ActionEvent event) {
+    void removeBill(ActionEvent Event) throws SQLException {
+    	Main m=new Main();
+    	if(billRefNo.getText().isEmpty() || billPayment.getText().isEmpty())
 
+    	{
+    		info.setText("Enter Data in all fields");
+    	}
+    	else {
+    		//Integer roll=Integer.parseInt(CNIC.getText());
+    		Main.getEntAssRegsister().removeBooking(m.getEntAssRegsister().getEntAssID(),billRefNo.getText());;
+    		this.BillTable(Event);
+    	}
+    	this.BillTable(Event);
     }
 
     @FXML

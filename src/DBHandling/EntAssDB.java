@@ -118,7 +118,7 @@ public class EntAssDB {
         ResultSet rs = stm.executeQuery(query);
 
         while (rs.next()) {
-            if(CNIC.intValue()==rs.getInt(1))
+            if(CNIC==rs.getInt(1))
                 arr.add(new BookingAss(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
 
         }
@@ -130,5 +130,14 @@ public class EntAssDB {
         String query="insert into A_BookingDetail VALUES("+CNIC+",'"+M_ID+"','"+date+"','"+time+"')";
         Statement stm=con.createStatement();
         stm.executeUpdate(query);
+    }
+    
+    public void removrBooking(Integer CNIC,String M_ID) throws SQLException {
+        String query = "delete from A_BookingDetail where A_CNIC = ?  and M_ID = ?";
+        PreparedStatement preparedStmt = con.prepareStatement(query);
+        preparedStmt.setInt(1, CNIC);
+        preparedStmt.setString(2, M_ID);
+        // execute the preparedstatement
+        preparedStmt.execute();
     }
 }

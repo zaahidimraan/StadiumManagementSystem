@@ -113,6 +113,7 @@ public class Empire {
 	    		Main.getEntAssRegsister().addEntAss(roll, staffName.getText(), phone, staffType.getText(), payment);
 	    		m.changeScene("Empire.fxml");
 	    	}
+	    	this.showTable(Event);
 	    	
 	    }
 	    
@@ -130,6 +131,7 @@ public class Empire {
 	    		Main.getEntAssRegsister().removeEntAss(phone, staffType.getText());
 	    		m.changeScene("Empire.fxml");
 	    	}
+	    	this.showTable(Event);
 	    	
 	    }
 	    
@@ -147,11 +149,13 @@ public class Empire {
 	    		Main.getEntAssRegsister().updateEntAss(roll, staffName.getText(), phone, staffType.getText(), payment);
 	    		m.changeScene("Empire.fxml");
 	    	} 	
+	    	this.showTable(Event);
 	    }
 	    
 		public void bookingScreen(ActionEvent Event) throws IOException {
 	    	Main m=new Main();
 	    	m.getEntAssRegsister().setEntAssID(Integer.parseInt(staffCNIC.getText()));
+	    	System.out.println(m.getEntAssRegsister().getEntAssID());
 	    	m.changeScene("BookingEntAssScreen.fxml");
 	    }
 		

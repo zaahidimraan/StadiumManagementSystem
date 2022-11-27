@@ -35,7 +35,18 @@ public class EntAssRegsisterBL {
         }
         for(int i=0;i<commentators.size();i++){
             if(CNIC==commentators.get(i).getCNIC())
-                empires.get(i).addBooking(CNIC,M_ID,date,time);
+                commentators.get(i).addBooking(CNIC,M_ID,date,time);
+        }
+    }
+    
+    public void removeBooking(Integer CNIC,String M_ID) throws SQLException {
+        for(int i=0;i<empires.size();i++){
+            if(CNIC==empires.get(i).getCNIC())
+                empires.get(i).removeBooking(CNIC,M_ID);
+        }
+        for(int i=0;i<commentators.size();i++){
+            if(CNIC==commentators.get(i).getCNIC())
+            	commentators.get(i).removeBooking(CNIC,M_ID);
         }
     }
 

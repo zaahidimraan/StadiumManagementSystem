@@ -23,6 +23,12 @@ public class EntAss {
         db.addBooking(CNIC,M_ID,date,time);
         bookingA=db.getBookingEnt(CNIC);
     }
+    
+    public void removeBooking(Integer CNIC,String M_ID) throws SQLException {
+        EntAssDB db=new EntAssDB();
+        db.removrBooking(CNIC,M_ID);
+        bookingA=db.getBookingEnt(CNIC);
+    }
     public EntAss(Integer CNIC, String name, Integer pnumber) {
         this.CNIC = CNIC;
         this.name = name;
